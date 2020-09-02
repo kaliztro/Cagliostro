@@ -22,7 +22,7 @@ const embed = new Discord.MessageEmbed()
 	.setColor('#3086c9')
 	.setDescription(mensagem);
 
-	const channel = client.channels.cache.get('735232543900827710');
+	const channel = client.channels.cache.get('733462634732453961');
 	try {
 		const webhooks = await channel.fetchWebhooks();
 		const webhook = webhooks.first();
@@ -41,7 +41,7 @@ const embed = new Discord.MessageEmbed()
 	parms.shift()
 	const titulo = parms.join(" ");
 
-	const channel = client.channels.cache.get('735232543900827710');
+	const channel = client.channels.cache.get('733462634732453961');
 	try {
 		const webhooks = await channel.fetchWebhooks();
 		const webhook = webhooks.first();
