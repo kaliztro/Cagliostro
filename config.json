@@ -1,4 +1,6 @@
 {
     "prefix": "!",
-    "prefixADM": "a!"
+    "prefixADM": "a!",
+    "webhookID": "745754497984364646",
+    "webhookToken": "BgYLqdmCkWK53pFb7hJFxt_xZiM_ARXGZxapiSseUBjeCPRBkAZt3qQm9Cs3Eejxtnaj"
 }

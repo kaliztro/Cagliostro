@@ -13,49 +13,32 @@ exports.run = async (client, message, args) => {
 	parms.shift()
 	const splitarg = parms.join(" ").split(" / ");
 
-	const tituloDaEmbed = splitarg[0]; // mensagem na embed 
+	const subtitulo = splitarg[0]; // mensagem na embed 
 	const mensagem = splitarg[1]; // titulo da embed 
 	const titulo = splitarg[2]; // mensagem fora da embed
 
-const embed = new Discord.MessageEmbed()
-	.setTitle(tituloDaEmbed)
-	.setColor('#3086c9')
-	.setDescription(mensagem);
+    const webhookClient = new Discord.WebhookClient(config.webhookID, config.webhookToken);
+    
+    const embed = new Discord.MessageEmbed()
+    .setTitle(subtitulo)
+    .setDescription(mensagem)
+	.setColor('#3086c9');
 
-	const channel = client.channels.cache.get('733462634732453961');
-	try {
-		const webhooks = await channel.fetchWebhooks();
-		const webhook = webhooks.first();
+    webhookClient.send(titulo, embed );
 
-		await webhook.send( titulo, {
-			username: 'Cagliostro',
-			avatarURL: 'https://i.imgur.com/wsfxHzS.png',
-			embeds: [embed],
-		});
-	} catch (error) {
-		console.error('Error trying to send: ', error);
-	}
 } else if (message.content.includes("2")) {
 
 	const parms = args.slice(" ");
 	parms.shift()
-	const titulo = parms.join(" ");
+	const titulo2 = parms.join(" ");
 
-	const channel = client.channels.cache.get('733462634732453961');
-	try {
-		const webhooks = await channel.fetchWebhooks();
-		const webhook = webhooks.first();
+    const webhookClient = new Discord.WebhookClient(config.webhookID, config.webhookToken);
 
-		await webhook.send( titulo, {
-			username: 'Cagliostro',
-			avatarURL: 'https://i.imgur.com/wsfxHzS.png',
-		});
-	} catch (error) {
-		console.error('Error trying to send: ', error);
-	}
+    webhookClient.send(titulo2);
+
 };
 
-	message.delete()
+message.delete()
 
 };
 
