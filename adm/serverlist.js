@@ -6,7 +6,7 @@ module.exports.run = async (client, message, args) => {
 
 client.guilds.cache.forEach(g => {
     console.log(`NOME:`, g.name, 'ID:', g.id);
-    message.channel.send('**Nome: **`' + g.name + '` **ID:** ' + '`'+ g.id + '`');
+    message.author.send('**Nome: **`' + g.name + '` **ID:** ' + '`'+ g.id + '`');
     
   });
 
