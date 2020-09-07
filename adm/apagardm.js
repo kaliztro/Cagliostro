@@ -3,6 +3,7 @@ const Discord = require("discord.js");
 
 exports.run = async (client, message, args) => {
 
+message.delete();
 
   await message.author.createDM();
     await (await message.author.dmChannel.messages.fetch()).forEach( async (m)=> {
