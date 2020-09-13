@@ -93,4 +93,4 @@ client.on("message",(msg)=>{
 });
 
 
-client.login("NzExMDgyOTI1NjE3MTg0Nzk5.Xr91lA.htR12vlTNTFYrx-REwpWJirZddU"); 
+client.login(""); 
