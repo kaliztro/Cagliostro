@@ -1,10 +1,15 @@
 const Discord = require("discord.js"); 
 const client = new Discord.Client(); 
-const config = require("./config.json"); 
+const configs = require("./config.json"); 
 const { readdirSync } = require('fs')
 const Enmap = require('enmap')
+const { config } = require("dotenv");
 
 client.commands = new Enmap()
+
+config({ 
+  path: __dirname + "/.env"
+})
 
 // timer para o bot ser reiniciado na discloud (envia pra mim (kaliztro) no privado)
 client.on('ready', () => {
@@ -21,11 +26,11 @@ client.on('ready', () => {
 client.on("message", message => {
      if (message.author.bot) return;
      if (message.channel.type == "dm") return;
-     if (!message.content.toLowerCase().startsWith(config.prefix)) return;
+     if (!message.content.toLowerCase().startsWith(configs.prefix)) return;
      if (message.content.startsWith(`<@!${client.user.id}>`) || message.content.startsWith(`<@${client.user.id}>`)) return;
 
     const args = message.content
-        .trim().slice(config.prefix.length)
+        .trim().slice(configs.prefix.length)
         .split(/ +/g);
     const command = args.shift().toLowerCase();
 
@@ -35,7 +40,7 @@ client.on("message", message => {
     } catch (err) {
     console.error("Erro:" + err);
     client.channels.cache.get('732668425108979774').send("*" + err);
-    message.reply(`Esse comando não existe. utilize **${config.prefix}ajuda** para ver a lista de comandos. `)
+    message.reply(`Esse comando não existe. utilize **${configs.prefix}ajuda** para ver a lista de comandos. `)
   }
 });
 
@@ -43,14 +48,13 @@ client.on("message", message => {
 client.on("message", message => {
   if (message.author.bot) return;
  // if (message.channel.type == "dm") return; //n deixa enviar mensagens pv pro bot
-  if (!message.content.toLowerCase().startsWith(config.prefixADM)) return;
+  if (!message.content.toLowerCase().startsWith(configs.prefixADM)) return;
   if (message.content.startsWith(`<@!${client.user.id}>`) || message.content.startsWith(`<@${client.user.id}>`)) return;
 
   const args = message.content
-    .trim().slice(config.prefixADM.length)
+    .trim().slice(configs.prefixADM.length)
     .split(/ +/g);
   const command = args.shift().toLowerCase();
-  
   try {
     const commandFile = require(`./adm/${command}.js`)
   
@@ -58,7 +62,7 @@ client.on("message", message => {
   } catch (err) {
     console.error("Erro:" + err);
     client.channels.cache.get('732668425108979774').send("*" + err);
-    message.reply(`Esse comando não existe. utilize **${config.prefix}ajuda** para ver a lista de comandos. `)
+    message.reply(`Esse comando não existe. utilize **${configs.prefix}ajuda** para ver a lista de comandos. `)
   }
 });
 
@@ -93,4 +97,4 @@ client.on("message",(msg)=>{
 });
 
 
-client.login("NzExMDgyOTI1NjE3MTg0Nzk5.Xr91lA.htR12vlTNTFYrx-REwpWJirZddU"); 
+client.login(process.env.TOKEN);
