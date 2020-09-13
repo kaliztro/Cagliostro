@@ -55,6 +55,7 @@ client.on("message", message => {
     .trim().slice(configs.prefixADM.length)
     .split(/ +/g);
   const command = args.shift().toLowerCase();
+  
   try {
     const commandFile = require(`./adm/${command}.js`)
   
@@ -90,11 +91,11 @@ console.log('log', `Carregando o total de ${cmdFiles.length} comandos administra
 client.on("message",(msg)=>{
   if(msg.channel.type == "dm"){
   if (msg.author.bot) return;
-  if (msg.content.startsWith(config.prefix)) return;
-  if (msg.content.startsWith(config.prefixADM)) return;
+  if (msg.content.startsWith(configs.prefix)) return;
+  if (msg.content.startsWith(configs.prefixADM)) return;
     client.channels.cache.get('740355595563171851').send(`${msg.author.username}: ${msg.content}`);
   }
 });
 
 
-client.login(process.env.TOKEN);
+client.login(process.env.TOKEN); 
