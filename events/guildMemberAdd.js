@@ -15,7 +15,7 @@ module.exports = async (client, member) => {
       .setAuthor(member.user.tag, member.user.displayAvatarURL())
       .setTitle(`${emoji} Boas-vindas ${emoji}`)
       .setImage("https://i.imgur.com/QzfNwIE.gif")
-      .setDescription(`**${member.user}**, bem-vindo(a) aos  **${guild.name}**! :heart:`)
+      .setDescription(`**${member.user}**, bem-vindo(a) aos  **${guild.name}**! :heart: \n Qualquer duvida sobre os comandos do bot é so digitar **!ajuda**`)
       .setThumbnail(member.user.displayAvatarURL({ dynamic: true, format: "png", size: 1024 }))
       .setFooter('ID do usuario: ' + member.user.id)
       .setTimestamp();
