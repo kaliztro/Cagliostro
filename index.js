@@ -1,15 +1,12 @@
 const Discord = require("discord.js"); 
 const client = new Discord.Client(); 
-const configs = require("./config.json"); 
+const config = require("./config.json"); 
 const { readdirSync } = require('fs')
 const Enmap = require('enmap')
-const { config } = require("dotenv");
+
+require('dotenv').config()
 
 client.commands = new Enmap()
-
-config({ 
-  path: __dirname + "/.env"
-})
 
 // timer para o bot ser reiniciado na discloud (envia pra mim (kaliztro) no privado)
 client.on('ready', () => {
@@ -26,11 +23,11 @@ client.on('ready', () => {
 client.on("message", message => {
      if (message.author.bot) return;
      if (message.channel.type == "dm") return;
-     if (!message.content.toLowerCase().startsWith(configs.prefix)) return;
+     if (!message.content.toLowerCase().startsWith(config.prefix)) return;
      if (message.content.startsWith(`<@!${client.user.id}>`) || message.content.startsWith(`<@${client.user.id}>`)) return;
 
     const args = message.content
-        .trim().slice(configs.prefix.length)
+        .trim().slice(config.prefix.length)
         .split(/ +/g);
     const command = args.shift().toLowerCase();
 
@@ -40,7 +37,7 @@ client.on("message", message => {
     } catch (err) {
     console.error("Erro:" + err);
     client.channels.cache.get('732668425108979774').send("*" + err);
-    message.reply(`Esse comando não existe. utilize **${configs.prefix}ajuda** para ver a lista de comandos. `)
+    message.reply(`Esse comando não existe. utilize **${config.prefix}ajuda** para ver a lista de comandos. `)
   }
 });
 
@@ -48,11 +45,11 @@ client.on("message", message => {
 client.on("message", message => {
   if (message.author.bot) return;
  // if (message.channel.type == "dm") return; //n deixa enviar mensagens pv pro bot
-  if (!message.content.toLowerCase().startsWith(configs.prefixADM)) return;
+  if (!message.content.toLowerCase().startsWith(config.prefixADM)) return;
   if (message.content.startsWith(`<@!${client.user.id}>`) || message.content.startsWith(`<@${client.user.id}>`)) return;
 
   const args = message.content
-    .trim().slice(configs.prefixADM.length)
+    .trim().slice(config.prefixADM.length)
     .split(/ +/g);
   const command = args.shift().toLowerCase();
   
@@ -63,7 +60,7 @@ client.on("message", message => {
   } catch (err) {
     console.error("Erro:" + err);
     client.channels.cache.get('732668425108979774').send("*" + err);
-    message.reply(`Esse comando não existe. utilize **${configs.prefix}ajuda** para ver a lista de comandos. `)
+    message.reply(`Esse comando não existe. utilize **${config.prefix}ajuda** para ver a lista de comandos. `)
   }
 });
 
@@ -91,8 +88,8 @@ console.log('log', `Carregando o total de ${cmdFiles.length} comandos administra
 client.on("message",(msg)=>{
   if(msg.channel.type == "dm"){
   if (msg.author.bot) return;
-  if (msg.content.startsWith(configs.prefix)) return;
-  if (msg.content.startsWith(configs.prefixADM)) return;
+  if (msg.content.startsWith(config.prefix)) return;
+  if (msg.content.startsWith(config.prefixADM)) return;
     client.channels.cache.get('740355595563171851').send(`${msg.author.username}: ${msg.content}`);
   }
 });
