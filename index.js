@@ -4,8 +4,6 @@ const config = require("./config.json");
 const { readdirSync } = require('fs')
 const Enmap = require('enmap')
 
-require('dotenv').config()
-
 client.commands = new Enmap()
 
 // timer para o bot ser reiniciado na discloud (envia pra mim (kaliztro) no privado)
@@ -95,4 +93,4 @@ client.on("message",(msg)=>{
 });
 
 
-client.login(process.env.TOKEN); 
+client.login(""); 
