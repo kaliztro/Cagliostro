@@ -64,7 +64,7 @@ module.exports.run = async (client, message, args) => {
       music.on('collect', r2 => {
           
         ajuda.setTitle("Commandos de musica")
-        ajuda.setDescription(`**m!play**\n Toca a musica.\n**m!pause**\n Pausa a musica.\n**m!resume**\n Retoma a reprodução de música atualmente.\n**m!stop**\n Para a musica.\n**m!skip**\n Pula a musica.\n**m!skipto**\n Pula para o número da fila selecionado.\n**m!loop**\n Deixa a musica em loop.\n**m!lyrics**\n Exibe a letra da musica que esta tocando.\n**m!playlist**\n Toca uma playlist do youtube.\n**m!pruning**\n Alternar remoção de mensagens de bot.\n**m!queue**\n Mostrar a fila de músicas e agora em reprodução.\n**m!remove**\n Remove musica da fila.\n**m!search**\n Pesquise e selecione vídeos para reproduzir.\n**m!shuffle**\n Deixa a fila aleatória.\n**m!volume**\n Alterar o volume da música atualmente sendo reproduzida. `)
+        ajuda.setDescription(`**m!play (p)**\n Toca a musica.\n**m!pause**\n Pausa a musica.\n**m!resume (r)**\n Retoma a reprodução de música atualmente.\n**m!stop**\n Para a musica.\n**m!skip (s)**\n Pula a musica.\n**m!skipto (st)**\n Pula para o número da fila selecionado.\n**m!loop (l)**\n Deixa a musica em loop.\n**m!lyrics (ly)**\n Exibe a letra da musica que esta tocando.\n**m!playlist (pl)**\n Toca uma playlist do youtube.\n**m!pruning**\n Alternar remoção de mensagens de bot.\n**m!queue (q)**\n Mostrar a fila de músicas e agora em reprodução.\n**m!remove **\n Remove musica da fila.\n**m!search**\n Pesquise e selecione vídeos para reproduzir.\n**m!shuffle**\n Deixa a fila aleatória.\n**m!volume (v)**\n Alterar o volume da música atualmente sendo reproduzida. `)
         msg.edit(ajuda)
 
         
