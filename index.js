@@ -3,6 +3,7 @@ const client = new Discord.Client();
 const config = require("./config.json"); 
 const { readdirSync } = require('fs')
 const Enmap = require('enmap')
+const { TOKEN } = require("./local.json")
 
 client.commands = new Enmap()
 
@@ -93,4 +94,4 @@ client.on("message",(msg)=>{
 });
 
 
-client.login(""); 
+client.login(TOKEN); 
