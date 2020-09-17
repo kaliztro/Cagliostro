@@ -1,6 +1,7 @@
 const Discord = require('discord.js')
 const moment = require('moment')
 const config = require("../config.json");
+const discloud = require("discloud-status");
 
 moment.updateLocale('pt-br')
 
@@ -21,6 +22,8 @@ module.exports = {
   
     const guild = client.guilds.cache.get("720758990820343909");
     const emoji = guild.emojis.cache.find(emoji => emoji.id === "738911846635012188");
+
+    const DRAM = discloud.ram();
 
     const inline = true
     const botAvatar = client.user.displayAvatarURL()
@@ -46,6 +49,7 @@ module.exports = {
       .addField('**Estou online há**', `${uptime}`)
       .addField('**Criado em**', formatDate('DD/MM/YYYY, às HH:mm:ss', date))
       .addField('**Host**', `${emoji} DisCloudbot.com`)
+      .addField('**Uso de RAM**', `${DRAM}` )
       .addField('**Link do Bot e servidor**', 'http://parceirosdaloucura.glitch.me/')
       .setFooter(`2020 © ${client.user.username}.`)
       .setTimestamp()
