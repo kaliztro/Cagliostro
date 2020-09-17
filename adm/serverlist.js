@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
     if (!message.member.permissions.has("ADMINISTRATOR"))
-    return message.reply("você é fraco, lhe falta permissão para usar esse comando");
+    return message.reply("po cara , eu sei que é um comando inofensivo mas só ADM pode usar. sorry 💔 ");
 
 client.guilds.cache.forEach(g => {
     console.log(`NOME:`, g.name, 'ID:', g.id);

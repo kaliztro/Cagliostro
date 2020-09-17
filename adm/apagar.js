@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 exports.run = async (client, message, args) => {
   if (!message.member.permissions.has("MANAGE_MESSAGES"))
     return message.reply(
-      "você é fraco, lhe falta permissão de `Gerenciar Mensagens` para usar esse comando"
+      "É. \n parece que vc não pode usar esse comando. 😂"
     );
   const deleteCount = parseInt(args[0], 10);
   if (!deleteCount || deleteCount < 1 || deleteCount > 99)

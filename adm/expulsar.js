@@ -8,7 +8,7 @@ exports.run = (client, message, args) =>{
 
         var motivo = args.slice(1).join(" ");
         if(!motivo) return message.reply('Ops! o formato desse comando é \`<usuário>\` \`<motivo da expulsão>\`.');
-        if(!message.member.hasPermission("KICK_MEMBERS")) return message.reply('você é fraco, lhe falta permissão para usar esse comando');
+        if(!message.member.hasPermission("KICK_MEMBERS")) return message.reply('você é fraco, vc não consegue expulsar ninguém. chame algum adulto para ajuda-lo.');
 
         const kick = new Discord.MessageEmbed()
         .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))

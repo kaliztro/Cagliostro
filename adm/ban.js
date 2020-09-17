@@ -8,7 +8,7 @@ exports.run = (client, message, args) =>{
 
         var motivo = args.slice(1).join(" ");
         if(!motivo) return message.reply('Ops! o formato desse comando é \`<usuário>\` \`<motivo do banimento>\`.');
-        if(!message.member.hasPermission("BAN_MEMBERS")) return message.reply('você é fraco, lhe falta permissão para usar esse comando');
+        if(!message.member.hasPermission("BAN_MEMBERS")) return message.reply('🙄 Cara, só ADM pode banir alguém.');
 
         const ban = new Discord.MessageEmbed()
         .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))

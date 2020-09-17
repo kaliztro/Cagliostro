@@ -3,7 +3,7 @@ const Discord = require("discord.js")
 exports.run = async (client, message) => { 
 
  if (!message.member.permissions.has("MANAGE_MESSAGES")) 
-    return message.reply(`Você é fraco, você não consegue usar esse comando.`);
+    return message.reply(`Você não tem permissão para isso. 😤`);
     
  if (message.content.includes("on")) {
  

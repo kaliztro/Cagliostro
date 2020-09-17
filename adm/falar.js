@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 exports.run = (client, message, args) =>{
     if (!message.member.permissions.has("MANAGE_MESSAGES"))
     return message.reply(
-      "você é fraco, lhe falta permissão de `Gerenciar Mensagens` para usar esse comando"
+      "Você não manda em mim. 😡"
     );
 
     var fala = args.slice(1).join(" ");

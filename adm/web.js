@@ -4,7 +4,7 @@ const config = require('../config.json');
 exports.run = async (client, message, args) => {
 	if (!message.member.permissions.has("MANAGE_MESSAGES"))
     return message.reply(
-      "você é fraco, lhe falta permissão de `Gerenciar Mensagens` para usar esse comando"
+      "poxa cara, parece que vc não tem permissão pra fazer isso, que pena 😥 "
     );
 
 	if (message.content.includes("1")) {

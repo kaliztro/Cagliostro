@@ -4,10 +4,6 @@ const Discord = require("discord.js");
 
 
 exports.run = async (client, message, args) => {
-  if (!message.member.permissions.has("MANAGE_MESSAGES"))
-  return message.reply(
-    "você é fraco, lhe falta permissão para usar esse comando"
-  );
 // retorna o uso/total de RAM
 let r = discloud.ram();
 console.log(r) // 100/1024MB

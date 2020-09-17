@@ -19,6 +19,9 @@ module.exports = {
   
     let uptime = ` ${days.toFixed()}d ${hours.toFixed()}h ${minutes.toFixed()}m ${seconds.toFixed()}s`;
   
+    const guild = client.guilds.cache.get("720758990820343909");
+    const emoji = guild.emojis.cache.find(emoji => emoji.id === "738911846635012188");
+
     const inline = true
     const botAvatar = client.user.displayAvatarURL()
     const date = client.user.createdAt
@@ -42,7 +45,7 @@ module.exports = {
       .addField('**Usuários**', `👥${usersize}`, inline)
       .addField('**Estou online há**', `${uptime}`)
       .addField('**Criado em**', formatDate('DD/MM/YYYY, às HH:mm:ss', date))
-      .addField('**Host**', 'DisCloudbot.com')
+      .addField('**Host**', `${emoji} DisCloudbot.com`)
       .addField('**Link do Bot e servidor**', 'http://parceirosdaloucura.glitch.me/')
       .setFooter(`2020 © ${client.user.username}.`)
       .setTimestamp()
