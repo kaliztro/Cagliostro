@@ -35,7 +35,7 @@ client.on("message", message => {
         commandFile.run(client, message, args);
     } catch (err) {
     console.error("Erro:" + err);
-    client.channels.cache.get('732668425108979774').send("```" + err + "```");
+    client.channels.cache.get('732668425108979774').send("```js\n" + err + "```");
     message.reply(`Esse comando não existe. utilize **${config.prefix}ajuda** para ver a lista de comandos. `)
   }
 });
@@ -58,7 +58,7 @@ client.on("message", message => {
     commandFile.run(client, message, args);
   } catch (err) {
     console.error("Erro:" + err);
-    client.channels.cache.get('732668425108979774').send("```" + err + "```");
+    client.channels.cache.get('732668425108979774').send("```js\n" + err + "```");
     message.reply(`Esse comando não existe. utilize **${config.prefix}ajuda** para ver a lista de comandos. `)
   }
 });

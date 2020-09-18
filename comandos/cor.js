@@ -1,6 +1,13 @@
 const Discord = require("discord.js");
+const { cor } = require("../config.json")
 
 module.exports.run = async (client, message, args) => {
+
+    const coresEmbed = new Discord.MessageEmbed()
+    .setTitle('Cores disponiveis')
+    .setDescription('*ciano\n*laranja\n*verde\n*preto\n*branco\n*rosa\n*roxo\n*amarelo\n*azul\n*marrom')
+    .setColor(cor)
+
     var string = args.join(" ");
     var colors = [
         {name:"ciano", id:"739360066162917457"},
@@ -24,7 +31,7 @@ module.exports.run = async (client, message, args) => {
     var role = message.guild.roles.cache.find(r => r.name.toLowerCase() === string.toLowerCase());
 
     if (!args[0]) {
-        return message.channel.send(`${message.author} escreva o nome da cor após o comando`)
+        return message.channel.send(`${message.author} escreva o nome da cor após o comando.\n **EX:** !cor ciano`, coresEmbed)
     } else if (args[0].toLowerCase() === 'remove') {
         await message.member.roles.remove(ids);
         return await message.channel.send(`${message.author} suas cores foram resetadas ao padrão`);
