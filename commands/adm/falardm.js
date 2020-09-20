@@ -1,7 +1,14 @@
 
   const Discord = require('discord.js')
 
-  exports.run = async (client, message, args) => {
+  module.exports = {
+    name: "falardm",
+    category: "adm",
+    aliases: ["fdm"],
+    description: "Bot fala o que for escrito para o usuario mencinado no privado.",
+    usage: "falar @usuario conteudo da mensagem",
+    run: async (client, message, args) => {
+
     if (!message.member.permissions.has("MANAGE_MESSAGES"))
       return message.reply(
         "🤬 porque não fala vc mesmo?"
@@ -30,13 +37,4 @@
         await usuario.send(`${msg}`).catch(err => console.log(err))
     
     }
-  
-  
-  
-  exports.help ={
-      name:'falardm',
-      category: 'Moderação',
-      description: 'Bot fala o que for escrito para o usuario mencinado no privado.',
-      usage: 'falarpv',
-      admin: true
-    }
+}

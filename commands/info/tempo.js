@@ -1,6 +1,13 @@
 const Discord = require("discord.js");
+const config = require("../../config.json");
 
-module.exports.run = async (client, message, args) => {
+module.exports = {
+    name: "tempo",
+    category: "info",
+    aliases: ["temp"],
+    description: "Mostra o tempo que o bot esta ON.",
+    usage: "não precisa de mais nada.",
+    run: async (client, message, args) => {
   message.delete().catch(O_o => {});
   let totalSeconds = client.uptime / 1000;
   let days = Math.floor(totalSeconds / 86400);
@@ -14,15 +21,9 @@ module.exports.run = async (client, message, args) => {
   const embed = new Discord.MessageEmbed()
     .setTitle(`Tempo de atividade 🕰️`)
     .setThumbnail("https://imgur.com/WZMylbw.gif")
-    .setColor("#FF0000")
+    .setColor(config.cor)
     .setDescription(`**Estou online há:**\n${uptime}`)
 
   message.channel.send(embed);
+    }
 };
-
-exports.help ={
-  name:'tempo',
-  category: 'Info',
-  description: 'Mostra o tempo que o BOT esta Online.',
-  usage: 'tempo',
-}

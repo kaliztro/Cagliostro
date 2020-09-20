@@ -1,6 +1,14 @@
 const Discord = require('discord.js');
+const config = require("../../config.json");
 
-module.exports.run = async (client, message, args) => {
+module.exports = {
+    name: "8ball",
+    category: "outros",
+    aliases: ["8"],
+    description: "Te da resposta para suas perguntas!",
+    usage: "!8 e a sua pergunta, ou !8ball e a sua pergunta.",
+    run: async (client, message, args) => {
+
 
     var list = [
         'Sim.',
@@ -22,10 +30,10 @@ module.exports.run = async (client, message, args) => {
     if (!pergunta) return message.reply('Ops! o formato desse comando é \`<8ball>\` \`<pergunta>\`.')}
     let avatar = message.author.displayAvatarURL({format:"png"});
         const embed = new Discord.MessageEmbed()
-        .setColor('RANDOM')
+        .setColor(config.cor)
         .addFields(
             { name: 'Pergunta: ', value: `${pergunta}`,},
-            { name: `Cagliostro: `, value: `${rand}`,},
+            { name: `8ball: `, value: `${rand}`,},
         )
         .setTimestamp()
         .setThumbnail()
@@ -34,12 +42,7 @@ module.exports.run = async (client, message, args) => {
         
         message.channel.send(embed);
      
-    };
+    }
+}
 
-    
-    exports.help ={
-        name:'8ball',
-        category: 'Diversão',
-        description: 'Te da resposta para suas perguntas!.',
-        usage: '8ball pergunta',
-      }  
+   

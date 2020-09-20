@@ -1,6 +1,13 @@
 const Discord = require("discord.js")
 
-exports.run = async (client, message, args) => {
+module.exports = {
+  name: "coinflip",
+  category: "outros",
+  aliases: ["cf"],
+  description: "Jogo de Cara ou Coroa.",
+  usage: "!cf **cara** ou **coroa**, vc tmb pode usar !coinflip **cara** ou **coroa**",
+  run: async (client, message, args) => {
+
   var array1 = ["cara", "coroa"];
 
   var rand = Math.floor(Math.random() * array1.length);
@@ -15,11 +22,5 @@ else if (args[0].toLowerCase() != array1[rand]) {
     message.channel.send("Deu **" + array1[rand] + "**, você perdeu dessa vez!"
     );
   }
+  }
 };
-
-exports.help ={
-  name:'coinflip',
-  category: 'Diversão',
-  description: 'Jogo de Cara ou Coroa.',
-  usage: 'coinflip cara/coroa',
-}  

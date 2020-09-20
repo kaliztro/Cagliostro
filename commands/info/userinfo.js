@@ -1,8 +1,18 @@
+  
 const Discord = require('discord.js');
 const moment = require('moment');
+const config = require("../../config.json");
 moment.locale('pt-BR');
 
-module.exports.run = async (bot, message, args) => {
+
+module.exports = {
+    name: "userinfo",
+    category: "info",
+    aliases: ["ui"],
+    description: "Mostra as informações do usuario",
+    usage: "é só isso.",
+
+    run: async (client, message, args) => {
     let userArray = message.content.split(" ");
     let userArgs = userArray.slice(1);
     let member = message.mentions.members.first() || message.guild.members.cache.get(userArgs[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === userArgs.slice(0).join(" ") || x.user.username === userArgs[0]) || message.member;
@@ -22,22 +32,15 @@ module.exports.run = async (bot, message, args) => {
     const userEmbed = new Discord.MessageEmbed()
     .setAuthor(member.user.tag, member.user.displayAvatarURL())
     .setTimestamp()
-    .setColor('BLUE')
+    .setColor(config.cor)
     .setImage(member.user.displayAvatarURL())
     .addField("ID do Membro", member.id)
     .addField('Cargo(s)', `<@&${member._roles.join('> <@&')}>`)
     .addField("Conta criada em:", ` ${moment.utc(member.user.createdAt).format("LLLL")}`, true) 
-    .addField('Juntou-se ao servidor em:', `${joineddate} \n> ${joined} dia(s) atras`)
+    .addField('Juntou-se ao servidor em:', `${joineddate}`)
     .addField("Status", status)
 
     message.channel.send(userEmbed);
 
-};
-
-
-exports.help ={
-    name:'userinfo',
-    category: 'Info',
-    description: 'Mostra as informações do usuario.',
-    usage: 'userinfo',
-  }
+    }
+}

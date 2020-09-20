@@ -1,6 +1,12 @@
 const Discord = require("discord.js")
 
-exports.run = async (client, message) => { 
+module.exports = {
+   name: "lock",
+   category: "adm",
+   aliases: ["trancar"],
+   description: "tranca | Destranca um canal.",
+   usage: "no canal que vc quer trancar digite **!lock on** ou **lock off*",
+   run: async (client, message, args) => { 
 
  if (!message.member.permissions.has("MANAGE_MESSAGES")) 
     return message.reply(`Você não tem permissão para isso. 😤`);
@@ -21,15 +27,8 @@ exports.run = async (client, message) => {
    return message.channel.send("a forma correta é Lock on / Lock off");
  }
 
- };
+ }
+}
 
- exports.help ={
-    name:'lock',
-    category: 'Administração',
-    description: 'tranca | Destranca um canal.',
-    usage: 'lock on | lock off',
-    admin: true
-  }  
-  
    
   

@@ -1,6 +1,13 @@
 const Discord = require('discord.js');
+const config = require("../../config.json");
 
-exports.run = (client, message, args) =>{
+module.exports = {
+        name: "expulsar",
+        category: "adm",
+        aliases: ["expulsar"],
+        description: "Expulsa um membro do servidor.",
+        usage: "!expulsar @membro motivo",
+        run: async (client, message, args) => {
 
         var membro = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
         if(!membro) return message.reply('Ops! o formato desse comando é \`<usuário>\` \`<motivo da expulsão>\`.');
@@ -13,7 +20,7 @@ exports.run = (client, message, args) =>{
         const kick = new Discord.MessageEmbed()
         .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
         .setThumbnail("")
-        .setColor("#3086c9")
+        .setColor(config.cor)
         .setDescription(`Você dejesa expulsar esse usuário: **${membro.user.username}**?`)
         .setImage(membro.user.displayAvatarURL())
 
@@ -21,15 +28,7 @@ exports.run = (client, message, args) =>{
 
                 message.channel.send(kick)
                 membro.kick(); 
-        };
+        }
+}
 
     
-
-        exports.help ={
-            name:'expulsar',
-            category: 'Moderação',
-            description: 'Expulsa um membro do servidor.',
-            usage: 'expulsar @usuario motivo',
-            admin: true
-          }
-        

@@ -1,7 +1,13 @@
 const Discord = require("discord.js");
 
+module.exports = {
+  name: "apagar",
+  category: "adm",
+  aliases: ["a"],
+  description: "Apaga as mensagens de um canal.",
+  usage: "!apagar e o nº de mensagens. max 99 mensagens",
+  run: async (client, message, args) => {
 
-exports.run = async (client, message, args) => {
   if (!message.member.permissions.has("MANAGE_MESSAGES"))
     return message.reply(
       "É. \n parece que vc não pode usar esse comando. 😂"
@@ -22,14 +28,9 @@ exports.run = async (client, message, args) => {
       console.log(`Não foi possível deletar mensagens devido a: ${error}`)
     );
 
-};
+  }
+}
 
-exports.help ={
-  name:'apagar',
-  category: 'Moderação',
-  description: 'Apaga as mensagens de um canal.',
-  usage: 'apagar [1 - 99]',
-  admin: true
-}  
+ 
 
  

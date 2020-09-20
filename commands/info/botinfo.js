@@ -1,17 +1,19 @@
 const Discord = require('discord.js')
 const moment = require('moment')
-const config = require("../config.json");
+const config = require("../../config.json");
 const discloud = require("discloud-status");
 
 moment.updateLocale('pt-br')
 
 module.exports = {
+    name: "botinfo",
+    category: "info",
+    aliases: ["bi"],
+    description: "Mostra informações do bot.",
+    usage: "É só isso mesmo.",
+    run: async (client, message, args) => {
 
-  
-
-  run: function (client, message, args) {
-
-    let totalSeconds = client.uptime / 1000;
+        let totalSeconds = client.uptime / 1000;
     let days = Math.floor(totalSeconds / 86400);
     let hours = Math.floor(totalSeconds / 3600);
     totalSeconds %= 3600;
@@ -37,7 +39,7 @@ module.exports = {
     }
 
     const embed = new Discord.MessageEmbed()
-      .setColor("#3086c9")
+      .setColor(config.cor)
       .setThumbnail(botAvatar)
       .setAuthor('🤖 Minhas informações')
       .addField('**Meu nick**', userName)
@@ -54,29 +56,22 @@ module.exports = {
       .setFooter(`2020 © ${client.user.username}.`)
       .setTimestamp()
 
-    if (client.user.presence.status) {
-      embed.addField(
-        '**Status**',
-        `${status[client.user.presence.status]}`,
-        inline,
-        true
-      )
+      if (client.user.presence.status) {
+        embed.addField(
+          '**Status**',
+          `${status[client.user.presence.status]}`,
+          inline,
+          true
+        )
+      }
+  
+      message.channel.send(embed)
+
+
+
     }
+};
 
-    message.channel.send(embed)
-  },
-
-  conf: {},
-
-  get help () {
-    return {
-      name: 'botinfo',
-      category: 'Info',
-      description: 'Mostra informações do bot.',
-      usage: 'botinfo'
-    }
-  }
-}
 /**
  * Formata a data passada para o padrão do Brasil.
  * @param {string} template

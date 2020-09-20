@@ -2,8 +2,15 @@ const discloud = require("discloud-status");
 
 const Discord = require("discord.js");
 
+module.exports = {
+  name: "ram",
+  category: "info",
+  aliases: [],
+  description: "Mostra a ram que o bot esta usando.",
+  usage: "ué, é só isso mesmo.",
+  run: async (client, message, args) => {
 
-exports.run = async (client, message, args) => {
+
 // retorna o uso/total de RAM
 let r = discloud.ram();
 console.log(r) // 100/1024MB
@@ -22,11 +29,4 @@ message.channel.send("" + tr)
 
 }
 
-
-exports.help ={
-    name:'ram',
-    category: 'Moderação',
-    description: 'Mostra a ram que o bot esta usando.',
-    usage: 'ram',
-    admin: true
-  }
+}

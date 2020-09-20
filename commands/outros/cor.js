@@ -1,12 +1,19 @@
 const Discord = require("discord.js");
-const { cor } = require("../config.json")
+const config = require("../../config.json");
 
-module.exports.run = async (client, message, args) => {
+module.exports = {
+    name: "cor",
+    category: "outros",
+    aliases: ["mudarcor"],
+    description: "Muda a sua cor.",
+    usage: "!cor e o nome da cor",
+    run: async (client, message, args) => {
+
 
     const coresEmbed = new Discord.MessageEmbed()
     .setTitle('Cores disponiveis')
     .setDescription('*ciano\n*laranja\n*verde\n*preto\n*branco\n*rosa\n*roxo\n*amarelo\n*azul\n*marrom')
-    .setColor(cor)
+    .setColor(config.cor)
 
     var string = args.join(" ");
     var colors = [
@@ -48,11 +55,5 @@ module.exports.run = async (client, message, args) => {
         
         }
     }
-
-
-exports.help ={
-  name:'cor',
-  category: 'seila',
-  description: 'Muda a sua cor.',
-  usage: 'cor nome da cor',
 }
+

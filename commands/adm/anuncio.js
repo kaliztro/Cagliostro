@@ -1,8 +1,15 @@
 const Discord = require('discord.js');
+const config = require("../../config.json");
 
-exports.run = (client, message, args) =>{
+module.exports = {
+    name: "anuncio",
+    category: "adm",
+    aliases: ["an"],
+    usage: "o bot vai te orientando.",
+    description: "Faz um anuncio no canal escolhido.",
+    run: async (client, message, args) => {
 
-    if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Você não possui permição para utilizar este comando.")
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("Você não possui permição para utilizar este comando.")
     
     message.channel.send(`Em qual canal você deseja anunciar?`).then(msg =>{
         let cp = message.channel.createMessageCollector(x => x.author.id === message.author.id, {max: 1}) 
@@ -25,7 +32,7 @@ exports.run = (client, message, args) =>{
 
                                 let embed = new Discord.MessageEmbed()
 
-                                .setColor('GOLD')
+                                .setColor(config.cor)
                                 .setFooter(`Comando enfetuado por ${message.author.username}`,message.author.avatarURL)
                                 .setTitle(tittle)
                                 .setDescription(desc)
@@ -41,10 +48,4 @@ exports.run = (client, message, args) =>{
     })
 }
 
-exports.help ={
-    name:'anuncio',
-    category: 'Moderação',
-    description: 'Faz um anuncio no canal escolhido.',
-    usage: 'anuncio',
-    admin: true
-  }  
+}

@@ -1,6 +1,13 @@
 const Discord = require('discord.js');
+const config = require("../../config.json");
 
-exports.run = (client, message, args) =>{
+module.exports = {
+    name: "ban",
+    category: "adm",
+    aliases: ["ban"],
+    description: "Bane um membro do servidor.",
+    usage: "!ban @membro motivo",
+    run: async (client, message, args) => {
 
         var membro = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
         if(!membro) return message.reply('Ops! o formato desse comando é \`<usuário>\` \`<motivo do banimento>\`.');
@@ -13,7 +20,7 @@ exports.run = (client, message, args) =>{
         const ban = new Discord.MessageEmbed()
         .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
         .setThumbnail("")
-        .setColor("#3086c9")
+        .setColor(config.cor)
         .setDescription(`Você dejesa banir esse usuário: **${membro.user.username}**?`)
         .setImage(membro.user.displayAvatarURL())
 
@@ -34,7 +41,4 @@ exports.run = (client, message, args) =>{
         });
 
     }
-
-exports.help = {
-    name:'ban'
 }

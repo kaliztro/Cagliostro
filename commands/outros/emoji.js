@@ -1,6 +1,13 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (client, message, args) => {
+module.exports = {
+  name: "emoji",
+  category: "outros",
+  aliases: [""],
+  usage: "!emoji e o nome do emoji.",
+  description: "Envia o emoji escolhido no chat.",
+  run: async (client, message, args) => {
+
   message.delete();
   if (!args[0])
     return message.channel.send(
@@ -19,11 +26,6 @@ module.exports.run = async (client, message, args) => {
   } else {
     message.channel.send(`<:${args[0]}:${emoji.id}>`);
   }
+  }
 };
 
-exports.help ={
-  name:'emoji',
-  category: 'diversão',
-  description: 'Envia o emoji escolhido no chat.',
-  usage: 'emoji',
-}

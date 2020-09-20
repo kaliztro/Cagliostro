@@ -1,7 +1,14 @@
 const Discord = require('discord.js');
-const config = require('../config.json');
+const config = require("../../config.json");
 
-exports.run = async (client, message, args) => {
+module.exports = {
+    name: "webhook",
+    category: "adm",
+    aliases: ["web"],
+    description: "Envia um webhook em um canal pré definido",
+    usage: "web 1 Titulo de embed / mensagem da embed / titulo fora da embed (esse ultimo é opicional)\n ou \n web 2 mensagem (essa n tem embed)",
+    run: async (client, message, args) => {
+
 	if (!message.member.permissions.has("MANAGE_MESSAGES"))
     return message.reply(
       "poxa cara, parece que vc não tem permissão pra fazer isso, que pena 😥 "
@@ -17,16 +24,16 @@ exports.run = async (client, message, args) => {
 	const mensagem = splitarg[1]; // titulo da embed 
 	const titulo = splitarg[2]; // mensagem fora da embed
 
-    const webhookClient = new Discord.WebhookClient(config.webhookID, config.webhookToken);
+    const webhookClient = new Discord.WebhookClient(webhookID, webhookToken);
     
     const embed = new Discord.MessageEmbed()
     .setTitle(subtitulo)
     .setDescription(mensagem)
-	.setColor('#3086c9');
+	.setColor(config.cor);
 
     webhookClient.send(titulo, embed );
 
-} else if (message.content.includes("2")) {
+ } else if (message.content.includes("2")) {
 
 	const parms = args.slice(" ");
 	parms.shift()
@@ -36,15 +43,13 @@ exports.run = async (client, message, args) => {
 
     webhookClient.send(titulo2);
 
-};
+    }else {
+        return message.channel.send("a forma correta é web 1 Titulo de embed / mensagem da embed / titulo fora da embed (esse ultimo é opicional)\n ou \n web 2 mensagem (essa n tem embed)").then(msg => { 
+            msg.delete({ timeout: 9000 })
+        })
+      }
 
-message.delete()
+    message.delete()
 
-};
-
-exports.help ={
-    name:'web',
-    category: 'anuncio',
-    description: 'cria um webhook',
-    usage: 'web 1 ou web 2 (web 1 envia com embed e web 2 envia normal)',
-  }
+    }
+}

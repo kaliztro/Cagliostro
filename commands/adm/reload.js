@@ -1,6 +1,12 @@
 const Discord = require("discord.js")
 
-module.exports.run = async (bot, message, args) => {
+module.exports = {
+    name: "reload",
+    category: "adm",
+    aliases: ["recarregar"],
+    description: "Recarrega um comando.",
+    usage: "reload e o nomde do comando",
+    run: async (client, message, args) => {
 
     if (!message.member.permissions.has("ADMINISTRATOR"))
     return message.reply(
@@ -13,22 +19,16 @@ module.exports.run = async (bot, message, args) => {
 
     try {
         delete require.cache[require.resolve(`./${commandName}.js`)] // usage !reload <name>
-        bot.commands.delete(commandName)
+        client.commands.delete(commandName)
         const pull = require(`./${commandName}.js`)
-        bot.commands.set(commandName, pull)
+        client.commands.set(commandName, pull)
     } catch(e) {
         return message.channel.send(`Não foi possível recarregar: \`${args[0].toUpperCase()}\``)
     }
 
     message.channel.send(`o comando \`${args[0].toUpperCase()}\` foi recarregado!`)
 
+    }
 }
 
 
-exports.help ={
-    name:'relodad',
-    category: 'Moderação',
-    description: 'Recarrega um comando.',
-    usage: 'reload comando',
-    admin: true
-  }
