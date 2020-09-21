@@ -62,7 +62,7 @@ client.on("message",(msg)=>{
     if(msg.channel.type == "dm"){
     if (msg.author.bot) return;
     if (msg.content.startsWith(prefix)) return;
-      client.channels.cache.get('740355595563171851').send(`${msg.author.username}: 🗣️ ${msg.content}`);
+      client.channels.cache.get('740355595563171851').send(`${msg.author.username} 🗣️ disse: ${msg.content}`);
     }
   });
 

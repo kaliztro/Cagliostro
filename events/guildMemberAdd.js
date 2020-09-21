@@ -3,10 +3,12 @@ const Discord = require('discord.js')
 
 module.exports = async (client, member) => {
 
+  if (!member.user.bot){
 
   let guild = await client.guilds.cache.get("545386837846523905");
   let channel = await client.channels.cache.get("691485505442938890");
-  let emoji = await member.guild.emojis.cache.find(emoji => emoji.name === "awn");
+  var role = member.guild.roles.cache.get("734934943804817469");
+  let emoji = await member.guild.emojis.cache.find(emoji => emoji.name === "emoji");
   if (guild != member.guild) {
     return console.log("Sem boas-vindas pra você! Sai daqui.");
    } else {
@@ -21,11 +23,15 @@ module.exports = async (client, member) => {
       .setTimestamp();
 
     channel.send(embed);
+    member.roles.add(role);
   }
 
-// define um cargo para um ususario novo
-  console.log('User ' + member.user.username + ' entrou no servidor!') 
- //var role = member.guild.roles.cache.find(role => role.name === 'Membro');
- var role = member.guild.roles.cache.get("734934943804817469");
-  member.roles.add(role) 
+} else if (member.user.bot){
+  let channel = await client.channels.cache.get("691485505442938890");
+  var Brole = member.guild.roles.cache.get("701920380259926017");
+ channel.send(`Um Bot acabou de entrar. 🤬\n ${member.user} o que vc está fazendo aqui??`)
+ member.roles.add(Brole)  
+
+}
+
 };
