@@ -11,13 +11,13 @@ module.exports = {
       const command = await client.commands.get(args[0]);
 
       if (!command) {
-        return message.channel.send("Unknown Command: " + args[0]);
+        return message.channel.send("Comando desconhecido: " + args[0]);
       }
 
       let embed = new MessageEmbed()
         .setAuthor(command.name, client.user.displayAvatarURL())
-        .addField("Description", command.description || "Not Provided :(")
-        .addField("Usage", "`" + command.usage + "`" || "Not Provied")
+        .addField("Descrição", command.description || "Não definido :(")
+        .addField("Como usar:", "`" + command.usage + "`" || "Não definido")
         .setThumbnail(client.user.displayAvatarURL())
         .setColor(config.cor)
         .setFooter(client.user.username, client.user.displayAvatarURL());
@@ -34,7 +34,7 @@ module.exports = {
 
       let com = {};
       for (let comm of commands.array()) {
-        let category = comm.category || "Unknown";
+        let category = comm.category || "Desconhecido";
         let name = comm.name;
 
         if (!com[category]) {
