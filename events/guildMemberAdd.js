@@ -27,6 +27,7 @@ module.exports = async (client, member) => {
   }
 
 } else if (member.user.bot){
+  let guild = await client.guilds.cache.get("545386837846523905");
   let channel = await client.channels.cache.get("691485505442938890");
   var Brole = member.guild.roles.cache.get("701920380259926017");
   if (guild != member.guild) {
