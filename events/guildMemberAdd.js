@@ -29,6 +29,8 @@ module.exports = async (client, member) => {
 } else if (member.user.bot){
   let channel = await client.channels.cache.get("691485505442938890");
   var Brole = member.guild.roles.cache.get("701920380259926017");
+  if (guild != member.guild) {
+    return console.log("ufa, o Bot não é desse servidor") }
  channel.send(`Um Bot acabou de entrar. 🤬\n ${member.user} o que vc está fazendo aqui??`)
  member.roles.add(Brole)  
 
