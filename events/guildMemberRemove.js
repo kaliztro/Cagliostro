@@ -30,7 +30,7 @@ module.exports = async (client, member) => {
   let channel = await client.channels.cache.get("691485505442938890");
   let nelson = await member.guild.emojis.cache.find(emoji => emoji.name === "haha");
   if (guild != member.guild) {
-    return console.log("ufa, o Bot não é desse servidor") }
+    return console.log("Não foi sesse servidor que o bot saiu :/") }
  channel.send(`${nelson} HA HA, O Bot ${member.user.username} foi expulso 🤣🤣🤣`)
  
 

@@ -16,10 +16,10 @@ module.exports = {
     let userArray = message.content.split(" ");
     let userArgs = userArray.slice(1);
     let member = message.mentions.members.first() || message.guild.members.cache.get(userArgs[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === userArgs.slice(0).join(" ") || x.user.username === userArgs[0]) || message.member;
-
-    if (member.presence.status === 'dnd') member.presence.status = 'Do Not Disturb';
+    
+    if (member.presence.status === 'dnd') member.presence.status = '`🔴`Não perturbar';
     if (member.presence.status === 'online') member.presence.status = '`🟢`Online';
-    if (member.presence.status === 'idle') member.presence.status = 'Idle';
+    if (member.presence.status === 'idle') member.presence.status = '`🟡`Ausente';
     if (member.presence.status === 'offline') member.presence.status = '`⚫`offline';
 
     let x = Date.now() - member.createdAt;
