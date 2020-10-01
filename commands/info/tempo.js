@@ -21,7 +21,7 @@ module.exports = {
   const embed = new Discord.MessageEmbed()
     .setTitle(`Tempo de atividade 🕰️`)
     .setThumbnail("https://imgur.com/WZMylbw.gif")
-    .setColor(config.cor)
+    .setColor("#ff0202")
     .setDescription(`**Estou online há:**\n${uptime}`)
 
   message.channel.send(embed);
