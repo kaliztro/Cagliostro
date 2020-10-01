@@ -8,6 +8,8 @@ module.exports = {
   usage: "rwebhook <#canal>",
   description: "Remove o canal do webhook.",
   run: (client, message, args) => {
+    if (!message.member.permissions.has("ADMINISTRATOR"))
+    return message.reply("🛑 Parece que vc está tentando usar um comando que é permitido somente aos ADMs 🛑");
     
     db.set(`webhook_${message.guild.id}`) //set id in var
     

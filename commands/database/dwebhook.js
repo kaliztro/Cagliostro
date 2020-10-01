@@ -8,6 +8,9 @@ module.exports = {
   usage: "dwebhook <#canal>",
   description: "Define um canal para as mensagens do webhook",
   run: (client, message, args) => {
+    if (!message.member.permissions.has("ADMINISTRATOR"))
+    return message.reply("🛑 Parece que vc está tentando usar um comando que é permitido somente aos ADMs 🛑");
+
     
     let channel = message.mentions.channels.first() //mentioned channel
     

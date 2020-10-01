@@ -9,6 +9,9 @@ module.exports = {
   usage: "rcargo <@cargo>",
   description: "Remove o cargo definido.",
   run: (client, message, args) => {
+    if (!message.member.permissions.has("ADMINISTRATOR"))
+    return message.reply("🛑 Parece que vc está tentando usar um comando que é permitido somente aos ADMs 🛑");
+
     
     db.delete(`role_${message.guild.id}`)
     
