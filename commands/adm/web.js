@@ -24,7 +24,7 @@ module.exports = {
 	const mensagem = splitarg[1]; // titulo da embed 
 	const titulo = splitarg[2]; // mensagem fora da embed
 
-    const webhookClient = new Discord.WebhookClient(webhookID, webhookToken);
+    const webhookClient = new Discord.WebhookClient(config.webhookID, config.webhookToken);
     
     const embed = new Discord.MessageEmbed()
     .setTitle(subtitulo)
