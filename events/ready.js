@@ -1,11 +1,11 @@
-// icone de online no discord e mensagem de online no log
+const db = require("quick.db")
+
 module.exports = async (client) => { 
-    client.user
-        .setStatus("online") // idle, dnd, online, invisible
-        .catch(console.error);
-        console.log(`Eu estou online agora, meu nome é ${client.user.username}. Há ${client.users.cache.size} usuario(s) em ${client.guilds.cache.size} servidor(es)!`);
-  
-        
+  client.user.setActivity(db.get(`status_`), {
+    type: "PLAYING"}) 
+      client.user
+    console.log(`Eu estou online agora, meu nome é ${client.user.username}. Há ${client.users.cache.size} usuario(s) em ${client.guilds.cache.size} servidor(es)!`)
+    
   // timer para o bot ser reiniciado na discloud (envia pra mim (kaliztro) no privado)
   
   var content = "Preciso ser reiniciado"; //mensagem do timer
