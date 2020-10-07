@@ -12,18 +12,16 @@ module.exports = {
       .setTitle("Lista de comandos!")
       .setThumbnail("")
       .setColor(config.cor)
-      .setDescription("Reagir de acordo com o que Procura!\n\n📰 - Informações\n\n🛂 - Administração\n\n🎧 - Musica\n\n🎮 - Outros\n\n⚙️ - Config")
+      .setDescription("Reagir de acordo com o que Procura!\n\n📰 - Informações\n\n🛂 - Administração\n\n🎮 - Outros\n\n⚙️ - Config")
       
   
     message.channel.send(ajuda).then(msg => {
         msg.react('🌐').then(r => {
         msg.react('📰').then(r => {
         msg.react('🛂').then(r => {
-        msg.react('🎧').then(r => {
         msg.react('🎮').then(r => {
         msg.react('⚙️').then(r => {
 
-        })
         })
         })
         })
@@ -33,14 +31,12 @@ module.exports = {
        const infosFilter = (reaction, user) => reaction.emoji.name === '📰' && user.id === message.author.id;
        const admFilter = (reaction, user) => reaction.emoji.name === '🛂' && user.id === message.author.id;
        const outrFilter = (reaction, user) => reaction.emoji.name === '🎮' && user.id === message.author.id;
-       const musicFilter = (reaction, user) => reaction.emoji.name === '🎧' && user.id === message.author.id;
        const inicioFilter = (reaction, user) => reaction.emoji.name === '🌐' && user.id === message.author.id;
        const configuFilter = (reaction, user) => reaction.emoji.name === '⚙️' && user.id === message.author.id;
   
        const  infos =  msg.createReactionCollector(infosFilter);
        const  adm =  msg.createReactionCollector(admFilter);
        const  outr =  msg.createReactionCollector(outrFilter);
-       const  music =  msg.createReactionCollector(musicFilter);
        const  inicio = msg.createReactionCollector(inicioFilter);
        const  configu = msg.createReactionCollector(configuFilter);
        
@@ -70,32 +66,24 @@ module.exports = {
 
       })
       
-      music.on('collect', r2 => {
-          
-        ajuda.setTitle("Commandos de musica")
-        ajuda.setDescription(`**m!play [p]**\n Toca a musica.\n**m!pause**\n Pausa a musica.\n**m!resume [r]**\n Retoma a reprodução de música atualmente.\n**m!stop**\n Para a musica.\n**m!skip [s]**\n Pula a musica.\n**m!skipto [st]**\n Pula para o número da fila selecionado.\n**m!loop [l]**\n Deixa a musica em loop.\n**m!lyrics [ly]**\n Exibe a letra da musica que esta tocando.\n**m!playlist [pl]**\n Toca uma playlist do youtube.\n**m!pruning**\n Alternar remoção de mensagens de bot.\n**m!queue [q]**\n Mostrar a fila de músicas e agora em reprodução.\n**m!remove **\n Remove musica da fila.\n**m!search**\n Pesquise e selecione vídeos para reproduzir.\n**m!shuffle**\n Deixa a fila aleatória.\n**m!volume [v]**\n Alterar o volume da música atualmente sendo reproduzida. `)
-        msg.edit(ajuda)
-
-        
-
-      })
-
-      inicio.on('collect', r2 => {
+      configu.on('collect', r2 => {
 
         ajuda.setTitle("Lista de comandos!")
-        ajuda.setDescription('Reagir de acordo com o que Procura!\n\n📰 - Informações\n\n🛂 - Administração\n\n🎮 - Outros\n\n🎶 - Musica')
+        ajuda.setDescription(`**${config.prefix}dentrada**\n Define o canal onde serão envidas as mensagens de boas vindas.\n**${config.prefix}dsaida**\n Define o canal onde serão envidas as mensagens de saida.\n**${config.prefix}dcargo**\nDefine um cargo padão para os novos membros.\n**${config.prefix}rentrada**\nRemove a mensagem de Bem vindo.\n**${config.prefix}rsaida**\nRemove a mensagem de saida.\n**${config.prefix}rcargo**\nRemove o cargo padrão.`)
+
         msg.edit(ajuda)
           
         })
 
-        configu.on('collect', r2 => {
+      inicio.on('collect', r2 => {
 
-          ajuda.setTitle("Lista de comandos!")
-          ajuda.setDescription(`**${config.prefix}dentrada**\n Define o canal que recebera as mensagens de boas vindas.\n**${config.prefix}dsaida**\n Define o canal que recebera as mensagens de saida.\n**${config.prefix}dcargo**\nDefine um cargo padão para os novos membros.\n**${config.prefix}rentrada**\nRemove a mensagem de Bem vindo.\n**${config.prefix}rsaida**\nRemove a mensagem de saida.\n**${config.prefix}rcargo**\nRemove o cargo padrão.`)
+        ajuda.setTitle("Lista de comandos!")
+        ajuda.setDescription("Reagir de acordo com o que Procura!\n\n📰 - Informações\n\n🛂 - Administração\n\n🎮 - Outros\n\n⚙️ - Config")
+        msg.edit(ajuda)
+          
+        })
 
-          msg.edit(ajuda)
-            
-          })
+       
   
   })
 

@@ -9,9 +9,8 @@ module.exports = {
   description: "Remove o status do bot.",
   run: (client, message, args) => {
     
-    if(!message.author.id === "459559578648969227") {
-      return message.channel.send("Esse comando é especifico para o meu criador.")
-    }
+    if (message.member.user.id == '459559578648969227' ) {
+    }else{ return message.reply(`Somente o meu criador pode usar esse comando`) }
      
     db.delete(`status_`, )
     

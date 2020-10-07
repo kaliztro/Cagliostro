@@ -2,7 +2,7 @@
 const Discord = require('discord.js');
 const moment = require('moment');
 const config = require("../../config.json");
-moment.locale('pt-BR');
+moment.updateLocale('pt-br');
 
 
 module.exports = {

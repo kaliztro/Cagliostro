@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 module.exports = {
   name: "sair",
   category: "adm",
-  aliases: ["sair"],
+  aliases: ["owner"],
   description: "sai do servidor selecionado.",
   usage: "digite !sair e o id do servidor. obs: somente o dono do bot pode usar esse comando.",
   run: async (client, message, args) => {
