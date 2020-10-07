@@ -22,12 +22,11 @@ module.exports = {
     if (member.presence.status === 'idle') member.presence.status = '`🟡`Ausente';
     if (member.presence.status === 'offline') member.presence.status = '`⚫`offline';
 
-    let x = Date.now() - member.createdAt;
-    let y = Date.now() - message.guild.members.cache.get(member.id).joinedAt;
-    const joined = Math.floor(y / 86400000);
-
-    const joineddate = moment.utc(member.joinedAt).format("LLLL");
     let status = member.presence.status;
+
+    const date = client.user.createdAt
+    const joined = message.member.joinedAt
+
 
     const userEmbed = new Discord.MessageEmbed()
     .setAuthor(member.user.tag, member.user.displayAvatarURL())
@@ -36,11 +35,26 @@ module.exports = {
     .setImage(member.user.displayAvatarURL())
     .addField("ID do Membro", member.id)
     .addField('Cargo(s)', `<@&${member._roles.join('> <@&')}>`)
-    .addField("Conta criada em:", ` ${moment.utc(member.user.createdAt).format("LLLL")}`, true) 
-    .addField('Juntou-se ao servidor em:', `${joineddate}`)
+    .addField("Conta criada em:", formatDate('DD/MM/YYYY, às HH:mm:ss', date)) 
+    .addField('Juntou-se ao servidor em:', formatDate('DD/MM/YYYY, às HH:mm:ss', joined))
     .addField("Status", status)
 
     message.channel.send(userEmbed);
 
     }
 }
+
+
+/**
+ * Formata a data passada para o padrão do Brasil.
+ * @param {string} template
+ * @param {Date=} [date]
+ * @return {string}
+ */
+function formatDate (template, date) {
+    var specs = 'YYYY:MM:DD:HH:mm:ss'.split(':')
+    date = new Date(date || Date.now() - new Date().getTimezoneOffset() * 6e4)
+    return date.toISOString().split(/[-:.TZ]/).reduce(function (template, item, i) {
+      return template.split(specs[i]).join(item)
+    }, template)
+  }
