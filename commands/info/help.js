@@ -18,9 +18,7 @@ module.exports = {
         .setAuthor(command.name, client.user.displayAvatarURL())
         .addField("Descrição", command.description || "Não definido :(")
         .addField("Como usar:", "`" + command.usage + "`" || "Não definido")
-        .setThumbnail(client.user.displayAvatarURL())
         .setColor(config.cor)
-        .setFooter(client.user.username, client.user.displayAvatarURL());
 
       return message.channel.send(embed);
     } else {
@@ -29,8 +27,6 @@ module.exports = {
       let emx = new MessageEmbed()
         .setDescription("**ei, não era para vc saber desse comando :D** \n para saber como usar algum comando digite !help e o nome do comando 😊")
         .setColor(config.cor)
-        .setFooter(client.user.username, client.user.displayAvatarURL())
-        .setThumbnail(client.user.displayAvatarURL());
 
       let com = {};
       for (let comm of commands.array()) {
@@ -48,7 +44,7 @@ module.exports = {
 
         let desc = "`" + value.join("`, `") + "`";
 
-        emx.addField(`${category.toUpperCase()}[${value.length}]`, desc);
+        emx.addField(`${category.toUpperCase()} [${value.length}]`, desc);
       }
 
       return message.channel.send(emx);

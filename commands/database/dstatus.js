@@ -1,5 +1,6 @@
 const db = require("quick.db")
 const discord = require("discord.js")
+const config = require("../../config.json")
 
 module.exports = {
   name: "dstatus",
@@ -8,8 +9,9 @@ module.exports = {
   category: "owner",
   run: async (client, message, args) => {
     
-    if (message.member.user.id == '459559578648969227' ) {
-    }else{ return message.reply(`Somente o meu criador pode usar esse comando`) }
+    if(message.author.id != config.donoID) {
+      return message.channel.send("Esse comando é especifico para o meu criador.")
+    }
     
     if(!args.length) {
       return message.channel.send("Digite o novo status.")

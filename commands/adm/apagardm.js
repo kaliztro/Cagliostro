@@ -7,6 +7,7 @@ module.exports = {
   description: "Apaga mensagens enviadas na dm do bot.",
   usage: "no perfil do bot digite !apagardm. obs vc também pode fazer isso em um canal de voz.",
   run: async (client, message, args) => {
+    message.react("✅");
 
   await message.author.createDM();
     await (await message.author.dmChannel.messages.fetch()).forEach( async (m)=> {

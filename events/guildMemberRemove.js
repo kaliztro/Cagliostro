@@ -25,7 +25,7 @@ module.exports = async (client, member) => {
   if (member.user.bot){
 
     let guild = await client.guilds.cache.get("545386837846523905");
-    let nelson = await member.guild.emojis.cache.find(emoji => emoji.id === "761014675466354689");
+    let nelson = await member.guild.emojis.cache.find(emoji => emoji.id === "672897038957936651");
 
       let botembed = await new Discord.MessageEmbed()
     .setColor(config.cor)

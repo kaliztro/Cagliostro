@@ -2,13 +2,13 @@
 const Discord = require('discord.js');
 const moment = require('moment');
 const config = require("../../config.json");
-moment.updateLocale('pt-br');
+moment.locale('pt-BR');
 
 
 module.exports = {
     name: "userinfo",
     category: "info",
-    aliases: ["ui"],
+    aliases: ["ui", "user"],
     description: "Mostra as informações do usuario",
     usage: "é só isso.",
 
@@ -22,39 +22,23 @@ module.exports = {
     if (member.presence.status === 'idle') member.presence.status = '`🟡`Ausente';
     if (member.presence.status === 'offline') member.presence.status = '`⚫`offline';
 
+    let x = Date.now() - member.createdAt;
+    let y = Date.now() - message.guild.members.cache.get(member.id).joinedAt;
+
     let status = member.presence.status;
 
-    const date = client.user.createdAt
-    const joined = message.member.joinedAt
-
-
     const userEmbed = new Discord.MessageEmbed()
-    .setAuthor(member.user.tag, member.user.displayAvatarURL())
-    .setTimestamp()
+    .setAuthor(member.user.username, member.user.displayAvatarURL() )
     .setColor(config.cor)
     .setImage(member.user.displayAvatarURL())
-    .addField("ID do Membro", member.id)
+    .addField("Tag", `#${member.user.discriminator}`)
+    .addField("ID", member.id)
     .addField('Cargo(s)', `<@&${member._roles.join('> <@&')}>`)
-    .addField("Conta criada em:", formatDate('DD/MM/YYYY, às HH:mm:ss', date)) 
-    .addField('Juntou-se ao servidor em:', formatDate('DD/MM/YYYY, às HH:mm:ss', joined))
+    .addField("Conta criada em:", ` ${moment(member.user.createdTimestamp).format('LL')} ${moment(member.user.createdTimestamp).fromNow()}`) 
+    .addField('Juntou-se ao servidor em:', `${moment(member.joinedAt).format('LL LTS')}`)
     .addField("Status", status)
 
     message.channel.send(userEmbed);
 
     }
 }
-
-
-/**
- * Formata a data passada para o padrão do Brasil.
- * @param {string} template
- * @param {Date=} [date]
- * @return {string}
- */
-function formatDate (template, date) {
-    var specs = 'YYYY:MM:DD:HH:mm:ss'.split(':')
-    date = new Date(date || Date.now() - new Date().getTimezoneOffset() * 6e4)
-    return date.toISOString().split(/[-:.TZ]/).reduce(function (template, item, i) {
-      return template.split(specs[i]).join(item)
-    }, template)
-  }

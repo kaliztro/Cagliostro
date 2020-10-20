@@ -42,7 +42,7 @@ module.exports = {
         .addField('**Humanos | Bots**', `${message.guild.members.cache.filter(member => !member.user.bot).size} | ${message.guild.members.cache.filter(member => member.user.bot).size}`)
         .addField('**Nivel de Boost**', message.guild.premiumTier , 'Nivel', message.guild.premiumTier)
         .addField(`**Nivel de verificação**`, `${verificationLevels[message.guild.verificationLevel]}`)
-        .addField('**Criado em**', formatDate('DD/MM/YYYY, às HH:mm:ss', date))
+        .addField('**Criado em**', formatDate('DD/MM/YYYY', date))
         .setTimestamp()
       message.channel.send(embed)
 

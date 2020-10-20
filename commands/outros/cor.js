@@ -9,6 +9,8 @@ module.exports = {
     usage: "!cor e o nome da cor",
     run: async (client, message, args) => {
 
+        const guild = client.guilds.cache.get("545386837846523905");
+        if (guild != message.guild) return message.channel.send("Esse comando não esta disponivel nesse servidor. 😭")
 
     const coresEmbed = new Discord.MessageEmbed()
     .setTitle('Cores disponiveis')
