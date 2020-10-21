@@ -1,5 +1,6 @@
 
   const Discord = require('discord.js')
+  const config = require('../../config.json')
 
   module.exports = {
     name: "falardm",
@@ -9,10 +10,10 @@
     usage: "falar @usuario conteudo da mensagem",
     run: async (client, message, args) => {
 
-    if (!message.member.permissions.has("MANAGE_MESSAGES"))
-      return message.reply(
-        "🤬 porque não fala vc mesmo?"
-      );
+      if(message.author.id != config.donoID) {
+        return message.channel.send(`${message.author}, Tu deve estar doidão né?, só o dono do Bot pode executar esse comando. \n se quiser que eu saia pede para o Kaliztro#9240`)
+      }
+  
   
         let guild = message.guild
     

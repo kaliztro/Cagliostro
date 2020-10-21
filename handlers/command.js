@@ -4,7 +4,6 @@ const ascii = require("ascii-table");
 const e = require("express");
 const { Message } = require("discord.js");
 
-//Cria uma nova tabela Ascii
 let table = new ascii("Comandos");
 table.setHeading("Comando", "Load status");
 
@@ -14,9 +13,7 @@ module.exports = (client, message) => {
         // Filtra para termos apenas arquivos de comando .js
         const commands = readdirSync(`./commands/${dir}/`).filter(file => file.endsWith(".js"));
     
-        // Faça um loop nos comandos e adicione todos eles a uma coleção
-        // Se nenhum nome for encontrado, evite que ele retorne um erro,
-        // Usando uma cruz na tabela que fizemos.
+    
         for (let file of commands) {
             let pull = require(`../commands/${dir}/${file}`);
     
@@ -35,6 +32,6 @@ module.exports = (client, message) => {
             
         }
     });
-    // Log the table
+
     console.log(table.toString());
 }

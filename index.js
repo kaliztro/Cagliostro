@@ -7,12 +7,10 @@ const client = new Discord.Client({
     disableEveryone: true
 })
 
-// Collections
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 
 
-// Run the command loader
 ["command"].forEach(handler => {
     require(`./handlers/${handler}`)(client);
 });
@@ -24,7 +22,6 @@ client.on("message", async message => {
     //if (!message.guild) return; // isso impede de enviar comandos na dm ex apagardm
     if (!message.content.startsWith(prefix)) return;
 
-    // Se message.member não estiver armazenado em cache, armazene-o em cache.
     //if (!message.member) message.member = await message.guild.fetchMember(message); //isso impede o comando apagarDM
 
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
@@ -32,13 +29,11 @@ client.on("message", async message => {
     
     if (cmd.length === 0) return;
     
-    // Obtenha o comando
     let command = client.commands.get(cmd); 
-    // Se nenhum for encontrado, tente encontrá-lo pelo alias
+
     if (!command) command = client.commands.get(client.aliases.get(cmd)); 
 
 
-    // Se um comando for finalmente encontrado, execute o comando
     if (command) 
         command.run(client, message, args);
 
