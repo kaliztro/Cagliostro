@@ -12,7 +12,7 @@ app.listen(process.env.PORT);
 
 
 module.exports = async (client) => { 
-  client.user.setActivity(db.get(`status_`), {
+  client.user.setActivity("Na duvida digite !ajuda", {
     type: "PLAYING"}) 
       client.user
     console.log(`Eu estou online agora, meu nome é ${client.user.username}. Há ${client.users.cache.size} usuario(s) em ${client.guilds.cache.size} servidor(es)!`)
