@@ -14,7 +14,7 @@ module.exports = {
 
     const coresEmbed = new Discord.MessageEmbed()
     .setTitle('Cores disponiveis')
-    .setDescription('*ciano\n*laranja\n*verde\n*preto\n*branco\n*rosa\n*roxo\n*amarelo\n*azul\n*marrom')
+    .setDescription(`*ciano\n*laranja\n*verde\n*preto\n*branco\n*rosa\n*roxo\n*amarelo\n*azul\n*marrom \n\n Para remover digite ${config.prefix}cor remover`)
     .setColor(config.cor)
 
     var string = args.join(" ");
@@ -41,7 +41,7 @@ module.exports = {
 
     if (!args[0]) {
         return message.channel.send(`${message.author} escreva o nome da cor após o comando.\n **EX:** !cor ciano`, coresEmbed)
-    } else if (args[0].toLowerCase() === 'remove') {
+    } else if (args[0].toLowerCase() === 'remover') {
         await message.member.roles.remove(ids);
         return await message.channel.send(`${message.author} suas cores foram resetadas ao padrão`);
     } else if (!names.includes(string.toLowerCase()) || !role) {
@@ -50,7 +50,7 @@ module.exports = {
         try {
             await message.member.roles.remove(ids);
             await message.member.roles.add(role);
-            return await message.channel.send(`${message.author} agora você ganhou a cor ${string}`);
+            return await message.channel.send(`${message.author} agora sua cor é ${string}`);
         } catch (err) {
             console.log("erro: " + err)
             }

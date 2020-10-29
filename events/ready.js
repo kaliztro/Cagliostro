@@ -1,4 +1,5 @@
 const db = require("quick.db")
+const config = require("../config.json")
 
 const express = require('express');
 const app = express();
@@ -12,8 +13,7 @@ app.listen(process.env.PORT);
 
 
 module.exports = async (client) => { 
-  client.user.setActivity("Na duvida digite !ajuda", {
-    type: "PLAYING"}) 
+  client.user.setActivity(`Na duvida digite ${config.prefix}ajuda`)
       client.user
     console.log(`Eu estou online agora, meu nome é ${client.user.username}. Há ${client.users.cache.size} usuario(s) em ${client.guilds.cache.size} servidor(es)!`)
     
