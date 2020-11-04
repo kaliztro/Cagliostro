@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const config = require("../../config.json");
+const local = require("../../local.json")
 
 module.exports = {
     name: "webhook",
@@ -24,7 +25,7 @@ module.exports = {
 	const mensagem = splitarg[1]; // titulo da embed 
 	const titulo = splitarg[2]; // mensagem fora da embed
 
-    const webhookClient = new Discord.WebhookClient(config.webhookID, config.webhookToken);
+    const webhookClient = new Discord.WebhookClient(local.webhookID, local.webhookToken);
     
     const embed = new Discord.MessageEmbed()
     .setTitle(subtitulo)
