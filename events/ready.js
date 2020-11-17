@@ -13,9 +13,9 @@ app.listen(process.env.PORT);
 
 
 module.exports = async (client) => { 
-  client.user.setActivity(`Na duvida digite ${config.prefix}ajuda`)
-      client.user
-    console.log(`Eu estou online agora, meu nome é ${client.user.username}. Há ${client.users.cache.size} usuario(s) em ${client.guilds.cache.size} servidor(es)!`)
+  
+  client.user.setPresence({ activity: { name: `Na duvida digite ${config.prefix}ajuda`, type: 'LISTENING' }, status: 'online' })
+  console.log(`Eu estou online agora, meu nome é ${client.user.username}. Há ${client.users.cache.size} usuario(s) em ${client.guilds.cache.size} servidor(es)!`)
     
   // timer para o bot ser reiniciado na discloud
   
