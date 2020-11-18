@@ -44,7 +44,7 @@ client.channels.cache.get(Mcanal).send(embed)
 
       if (!member.user.bot){
 
-        database.ref(`Servidor/Cargo/${member.guild.id}`)
+        database.ref(`Servidor/Entrada/Cargo/${member.guild.id}`)
   .once('value').then(async function (snap) {
 
     if (snap.val() == null) return;

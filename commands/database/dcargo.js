@@ -20,7 +20,7 @@ if(!role) {
   return message.channel.send("porfavor mencione um cargo primeiro")
 }
 
-database.ref(`Servidor/Cargo/${message.guild.id}`)
+database.ref(`Servidor/Entrada/Cargo/${message.guild.id}`)
 .once('value').then(async function (snap) {
     if (snap.val() == null) {
         database.ref(`Servidor/Entrada/Cargo/${message.guild.id}`)
