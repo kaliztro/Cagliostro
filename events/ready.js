@@ -1,5 +1,6 @@
-const db = require("quick.db")
 const config = require("../config.json")
+const firebase = require('firebase');
+const database = firebase.database();
 
 const express = require('express');
 const app = express();
@@ -12,11 +13,20 @@ app.get("/", (request, response) => {
 app.listen(process.env.PORT);
 
 
-module.exports = async (client) => { 
-  
-  client.user.setPresence({ activity: { name: `Na duvida digite ${config.prefix}ajuda`, type: 'LISTENING' }, status: 'online' })
+module.exports = async (client, message) => { 
+
+    database.ref(`DONO`)
+  .once('value').then(async function (snap) {
+
+    if (snap.val() == null) return;
+          
+    const status = snap.val().Status
+   
+  client.user.setPresence({ activity: { name: ` ${status}`, type: 'LISTENING' }, status: 'online' })
   console.log(`Eu estou online agora, meu nome é ${client.user.username}. Há ${client.users.cache.size} usuario(s) em ${client.guilds.cache.size} servidor(es)!`)
-    
+  })
+
+  
   // timer para o bot ser reiniciado na discloud
   
   var content = "Preciso ser reiniciado"; //mensagem do timer
@@ -32,7 +42,7 @@ module.exports = async (client) => {
 /*
 const fetch = require('node-fetch');
 setInterval(function() {
-fetch('https://lucy.guilhermemagal3.repl.co');
+fetch('SITE PARA SER PINGADO');
 }, 1000 * 60 * 1); //tempo definido para 1 minuto
 */
 

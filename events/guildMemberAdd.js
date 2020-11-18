@@ -1,57 +1,65 @@
-const Discord = require('discord.js')
-const db = require("quick.db")
-const config = require("../config.json")
+const Discord = require("discord.js")
+const firebase = require('firebase');
+const database = firebase.database();
+const config = require('../config.json')
 
-module.exports = async (client, member) => {
+module.exports = async (client, member, message, guild) => {
 
-const emoj = client.guilds.cache.get("545386837846523905");
-const emoji = emoj.emojis.cache.find(emoji => emoji.name === "awn");
+  database.ref(`Servidor/Entrada/${member.guild.id}`)
+  .once('value').then(async function (snap) {
 
-  let chx = db.get(`welchannel_${member.guild.id}`);
-  let servidor = db.get(`servidor_${member.guild.id}`);
-  let guild = client.guilds.cache.get(servidor)
-
-
-  if(chx === null) { 
-    return;
-  }
-
-  if (!member.user.bot){
-  let embed = await new Discord.MessageEmbed()
-      .setColor(config.cor)
-      .setAuthor(member.user.tag, member.user.displayAvatarURL())
-      .setTitle(`${emoji} Boas-vindas ${emoji}`)
-      .setImage("https://i.imgur.com/QzfNwIE.gif")
-      .setDescription(`**${member.user}**, bem-vindo(a) aos  **${guild.name}**! :heart: \n Qualquer duvida sobre os comandos é so digitar **${config.prefix}ajuda**`)
-      .setThumbnail(member.user.displayAvatarURL({ dynamic: true, format: "png", size: 1024 }))
-      .setFooter('ID do usuario: ' + member.user.id)
-      .setTimestamp();
-  
-  client.channels.cache.get(chx).send(embed) 
-
-   }
-
-  if (member.user.bot){
-    let botembed = await new Discord.MessageEmbed()
-  .setColor(config.cor)
-  .setAuthor(member.user.tag, member.user.displayAvatarURL())
-  .setTitle("ah não, um Bot acabou de entrar. 🤬")
-  .setImage("")
-  .setDescription(`${member.user} o que vc está fazendo aqui??`)
-  .setThumbnail(member.user.displayAvatarURL({ dynamic: true, format: "png", size: 1024 }))
-  .setTimestamp();
-    client.channels.cache.get(chx).send(botembed)
- 
-    }
+    if (snap.val() == null) return;
+          
+    const Mcanal = snap.val().canal
+    const Mserver = snap.val().server
 
     if (!member.user.bot){
 
-    let role = db.get(`role_${member.guild.id}`);
+    let embed = new Discord.MessageEmbed()
+      .setColor(config.cor)
+      .setAuthor(member.user.tag, member.user.displayAvatarURL())
+      .setTitle(`Boas-vindas`)
+      .setImage("https://i.imgur.com/QzfNwIE.gif")
+      .setDescription(`**${member.user}**, bem-vindo(a) aos** ${member.guild.name} **! :heart: \n Qualquer duvida sobre os comandos é so digitar **!ajuda**`)
+      .setThumbnail(member.user.displayAvatarURL({ dynamic: true, format: "png", size: 1024 }))
+      .setFooter(' ID do usuario: ' + member.user.id)
+      .setTimestamp();
 
-    if(role === null) { 
-      return;
+client.channels.cache.get(Mcanal).send(embed) 
+   
     }
 
-    member.roles.add(role)
-  }
-}
+    if (member.user.bot){
+      let botembed = new Discord.MessageEmbed()
+        .setColor(config.cor)
+        .setAuthor(member.user.tag, member.user.displayAvatarURL())
+        .setTitle("ah não, um Bot acabou de entrar. 🤬")
+        .setImage("")
+        .setDescription(`${member.user} o que vc está fazendo aqui??`)
+        .setThumbnail(member.user.displayAvatarURL({ dynamic: true, format: "png", size: 1024 }))
+        .setTimestamp();
+      client.channels.cache.get(Mcanal).send(botembed)
+   
+      }
+
+      if (!member.user.bot){
+
+        database.ref(`Servidor/Cargo/${member.guild.id}`)
+  .once('value').then(async function (snap) {
+
+    if (snap.val() == null) return;
+          
+    const role = snap.val().CargoID
+    
+        member.roles.add(role)
+      })
+
+      }
+
+
+
+
+    }) 
+
+
+};

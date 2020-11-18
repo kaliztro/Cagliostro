@@ -1,5 +1,6 @@
 const Discord = require("discord.js")
-const db = require("quick.db")
+const firebase = require('firebase');
+const database = firebase.database();
 
 module.exports = {
   name: "dsaida",
@@ -8,20 +9,42 @@ module.exports = {
   usage: "dsaida <#canal>",
   description: "define um canal de saida",
   run: (client, message, args) => {
+
     if (!message.member.permissions.has("ADMINISTRATOR"))
     return message.reply("🛑 Parece que vc está tentando usar um comando que é permitido somente aos ADMs 🛑");
 
-    
-    let channel = message.mentions.channels.first() //mentioned channel
-    
-    if(!channel) { //if channel is not mentioned
+    let opa = message.mentions.channels.first() 
+    let guild = message.guild.id
+
+    if(!opa) { 
       return message.channel.send("Primeiro você deve mencionar um canal")
     }
-    
-    //Now we gonna use quick.db
-    
-    db.set(`saichannel_${message.guild.id}`, channel.id) //set id in var
-    
-    message.channel.send(`A mensagem de saida foi definida no canal: ${channel}`) //send success message
-  }
+
+    database.ref(`Servidor/Saida/${message.guild.id}`)
+    .once('value').then(async function (snap) {
+        if (snap.val() == null) {
+            database.ref(`Servidor/Saida/${message.guild.id}`)
+                .set({
+                    server: `${message.guild.id}`,
+                    canal: `${opa.id}`
+                })
+
+                message.channel.send(`A mensagem de saida foi definida no canal: ${opa}`)
+
+              } else {
+
+                database.ref(`Servidor/Saida/${message.guild.id}`)
+                .update({
+                  server: `${message.guild.id}`,
+                  canal: `${opa.id}`
+                })
+
+                message.channel.send(`A mensagem de saida foi redefinida para o canal: ${opa}`)   
+
+              }
+            })      
+ }
 }
+
+    
+

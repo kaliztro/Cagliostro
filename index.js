@@ -3,9 +3,14 @@ const { prefix } = require("./config.json")
 const { token } = require("./local.json")
 const { readdirSync } = require('fs')
 
-const client = new Discord.Client({
-    disableEveryone: true
-})
+//database
+const firebase = require('firebase');
+const firebaseConfig = require('./local.json')
+firebase.initializeApp(firebaseConfig);
+const database = firebase.database();
+//
+
+const client = new Discord.Client()
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();

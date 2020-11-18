@@ -1,5 +1,6 @@
 const Discord = require("discord.js")
-const db = require("quick.db")
+const firebase = require('firebase');
+const database = firebase.database();
 
 module.exports = {
   name: "rentrada",
@@ -8,13 +9,18 @@ module.exports = {
   usage: "rentrada <#canal>",
   description: "Remove o canal de boas vindas",
   run: (client, message, args) => {
+
     if (!message.member.permissions.has("ADMINISTRATOR"))
     return message.reply("🛑 Parece que vc está tentando usar um comando que é permitido somente aos ADMs 🛑");
 
-    
-    db.delete(`welchannel_${message.guild.id}`) //set id in var
-    db.delete(`servidor_${message.guild.id}`)
-    
-    message.channel.send(`A mensagem de boas vindas foi removida.`) //send success message
-  }
+var guildData = firebase.database().ref(`Servidor/Entrada/${message.guild.id}`);
+guildData.remove()
+
+message.channel.send(`A mensagem de boas vindas foi removida`)    
+
+ }
 }
+
+
+
+
