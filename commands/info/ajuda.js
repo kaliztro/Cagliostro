@@ -44,7 +44,7 @@ module.exports = {
        infos.on('collect', r2 => {
  
         ajuda.setTitle("Commandos Informativos")
-        ajuda.setDescription(`**${config.prefix}ajuda [aj]**\n Mostra os comandos disponiveis\n **${config.prefix}avatar  [av]**\n Mostra o avatar do usuário ou de um bot.\nComo usar: ${config.prefix}avatar @nome do usuario\n **${config.prefix}botinfo  [bi]**\n Mostra as informações do bot.\n **${config.prefix}serverinfo [si]**\n Mostra as informações do server.\n **${config.prefix}userinfo [ui]** \nMostra as informações do usuario.\n**${config.prefix}ping  [p]** \n Mostra o ping do Bot.\n **${config.prefix}tempo** \n Mostra o tempo que o Bot esta online.\n**${config.prefix}ram**\n Mostra a ram que o bot esta usando.`)
+        ajuda.setDescription(`**${config.prefix}ajuda [aj]**\n Mostra os comandos disponiveis\n **${config.prefix}avatar  [av]**\n Mostra o avatar do usuário ou de um bot.\nComo usar: ${config.prefix}avatar @nome do usuario\n **${config.prefix}botinfo  [bi]**\n Mostra as informações do bot.\n **${config.prefix}serverinfo [si]**\n Mostra as informações do server.\n **${config.prefix}userinfo [ui]** \nMostra as informações do usuario.\n**${config.prefix}ping  [p]** \n Mostra o ping do Bot.\n **${config.prefix}tempo** \n Mostra o tempo que o Bot esta online.\n**${config.prefix}ram**\n Mostra a ram que o bot esta usando.\n**${config.prefix}nivel**\n  Mostra o seu nivel no servidor.`)
         msg.edit(ajuda)
         
       })
