@@ -1,13 +1,13 @@
 const Discord = require("discord.js"); 
 const { prefix } = require("./config.json")
 const { token } = require("./local.json")
-const { readdirSync } = require('fs')
 
 //database
 const firebase = require('firebase');
 const firebaseConfig = require('./local.json')
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
+const FB = require('firebase');
 //
 
 const client = new Discord.Client()
@@ -16,7 +16,7 @@ client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 
 
-["command"].forEach(handler => {
+["command", "event"].forEach(handler => {
     require(`./handlers/${handler}`)(client);
 });
 
@@ -40,20 +40,10 @@ client.on("message", async message => {
 
 
     if (command) 
-        command.run(client, message, args);
+        command.run(client, message, args, database, firebase, FB);
 
     if (!command) message.reply(`o comando "**${message.content}**" nao existe. Digite !ajuda para ver a lista de comandos 😉 `);
 
-});
-
-//carregando pasta events
-const evtFiles = readdirSync('./events/')
-console.log('log', `Carregando o total de ${evtFiles.length} eventos`)
-evtFiles.forEach(f => {
-  const eventName = f.split('.')[0]
-  const event = require(`./events/${f}`)
-
-  client.on(eventName, event.bind(null, client))
 });
 
 //mostra em um canal determinado as mensagens enviada no DM

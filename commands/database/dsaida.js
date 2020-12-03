@@ -1,6 +1,4 @@
 const Discord = require("discord.js")
-const firebase = require('firebase');
-const database = firebase.database();
 
 module.exports = {
   name: "dsaida",
@@ -8,7 +6,7 @@ module.exports = {
   aliases: [],
   usage: "dsaida <#canal>",
   description: "define um canal de saida",
-  run: (client, message, args) => {
+  run: (client, message, args, database) => {
 
     if (!message.member.permissions.has("ADMINISTRATOR"))
     return message.reply("🛑 Parece que vc está tentando usar um comando que é permitido somente aos ADMs 🛑");
