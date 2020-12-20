@@ -1,11 +1,12 @@
 const Discord = require('discord.js');
+const config = require("../../config.json")
 
 module.exports = {
     name: "tts",
     category: "adm",
     aliases: [],
     description: "Bot fala em voz alta o que for escrito.",
-    usage: "tts #canal conteudo da mensagem",
+    usage: `${config.prefix}tts #canal conteudo da mensagem`,
     run: async (client, message, args) => {
 
         if (!message.member.permissions.has("MANAGE_MESSAGES"))

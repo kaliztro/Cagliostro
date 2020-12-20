@@ -4,9 +4,9 @@ const config = require("../../config.json")
 module.exports = {
   name: "sair",
   category: "adm",
-  aliases: ["owner"],
+  aliases: ["dono"],
   description: "sai do servidor selecionado.",
-  usage: "digite !sair e o id do servidor. obs: somente o dono do bot pode usar esse comando.",
+  usage: `digite ${config.prefix}sair e o id do servidor. obs: somente o dono do bot pode usar esse comando.`,
   run: async (client, message, args) => {
 
     if(message.author.id != config.donoID) {

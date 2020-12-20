@@ -1,11 +1,12 @@
 const Discord = require("discord.js");
+const config = require("../../config.json")
 
 module.exports = {
   name: "apagardm",
   category: "adm",
   aliases: ["adm"],
   description: "Apaga mensagens enviadas na dm do bot.",
-  usage: "no perfil do bot digite !apagardm. obs vc também pode fazer isso em um canal de voz.",
+  usage: `no perfil do bot digite ${config.prefix}apagardm. obs vc também pode fazer isso em um canal de texto.`,
   run: async (client, message, args) => {
     message.react("✅");
 

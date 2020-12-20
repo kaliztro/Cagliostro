@@ -1,11 +1,12 @@
 const Discord = require("discord.js");
+const config = require("../../config.json")
 
 module.exports = {
   name: "apagar",
   category: "adm",
   aliases: ["a"],
   description: "Apaga as mensagens de um canal.",
-  usage: "!apagar e o nº de mensagens. max 99 mensagens",
+  usage: `${config.prefix}apagar e o nº de mensagens. max 99 mensagens`,
   run: async (client, message, args) => {
 
   if (!message.member.permissions.has("MANAGE_MESSAGES"))

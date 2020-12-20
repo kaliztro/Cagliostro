@@ -1,9 +1,11 @@
+const config = require("./../../config.json")
+
 module.exports = {
     name: "ping",
     category: "info",
-    aliases: ["p"],
+    aliases: [],
     description: "Mostra a latência do server e da API.",
-    usage: "é so digitar o comando mesmo.",
+    usage: `${config.prefix}ping`,
     run: async (client, message, args) => {
         const m = await message.channel.send("Ping?");
         m.edit(

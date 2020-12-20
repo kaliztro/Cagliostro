@@ -1,11 +1,12 @@
 const Discord = require("discord.js")
+const config = require("../../config.json")
 
 module.exports = {
     name: "reload",
     category: "adm",
     aliases: ["recarregar"],
     description: "Recarrega um comando.",
-    usage: "reload e o nomde do comando",
+    usage: `${config.prefix}reload e o nomde do comando`,
     run: async (client, message, args) => {
 
     if (!message.member.permissions.has("ADMINISTRATOR"))

@@ -1,5 +1,5 @@
 const discloud = require("discloud-status");
-
+const config = require("../../config.json")
 const Discord = require("discord.js");
 
 module.exports = {
@@ -7,7 +7,7 @@ module.exports = {
   category: "info",
   aliases: [],
   description: "Mostra a ram que o bot esta usando.",
-  usage: "ué, é só isso mesmo.",
+  usage: `${config.prefix}ram`,
   run: async (client, message, args) => {
 
 

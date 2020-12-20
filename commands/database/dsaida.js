@@ -1,10 +1,11 @@
 const Discord = require("discord.js")
+const config = require("../../config.json")
 
 module.exports = {
   name: "dsaida",
   category: "config",
   aliases: [],
-  usage: "dsaida <#canal>",
+  usage: `${config.prefix}dsaida <#canal>`,
   description: "define um canal de saida",
   run: (client, message, args, database) => {
 

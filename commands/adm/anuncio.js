@@ -5,7 +5,7 @@ module.exports = {
     name: "anuncio",
     category: "adm",
     aliases: ["an"],
-    usage: "o bot vai te orientando.",
+    usage: `${config.prefix}anuncio ou ${config.prefix}an`,
     description: "Faz um anuncio no canal escolhido.",
     run: async (client, message, args) => {
 

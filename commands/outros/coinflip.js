@@ -1,11 +1,12 @@
 const Discord = require("discord.js")
+const config = require("../../config.json")
 
 module.exports = {
   name: "coinflip",
   category: "outros",
   aliases: ["cf"],
   description: "Jogo de Cara ou Coroa.",
-  usage: "!cf **cara** ou **coroa**, vc tmb pode usar !coinflip **cara** ou **coroa**",
+  usage: `${config.prefix}cf **cara** ou **coroa**, vc tmb pode usar ${config.prefix}coinflip **cara** ou **coroa**`,
   run: async (client, message, args) => {
 
   var array1 = ["cara", "coroa"];

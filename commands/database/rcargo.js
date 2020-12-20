@@ -1,10 +1,11 @@
 const Discord = require("discord.js")
+const config = require("../../config.json")
 
 module.exports = {
     name: "rcargo",
     category: "config",
     aliases: [],
-    usage: "rcargo <@cargo>",
+    usage: `${config.prefix}rcargo <@cargo>`,
     description: "Remove o cargo definido.",
     run: (client, message, args, FB) => {
       

@@ -6,7 +6,7 @@ module.exports = {
     category: "info",
     aliases: ["av"],
     description: "Mostra o seu avatar, ou o avatar de quem vc mencionar.",
-    usage: "!avatar @usuario, ou somente !avatar para ver o seu proprio avatar.",
+    usage: `${config.prefix}avatar @usuario, ou somente ${config.prefix}avatar para ver o seu proprio avatar.`,
     run: async (client, message, args) => {
 
         let user = message.mentions.users.first() || client.users.cache.get(args[0]) || message.author;

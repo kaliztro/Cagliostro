@@ -1,11 +1,12 @@
 const Discord = require("discord.js")
+const config = require("../../config.json")
 
 module.exports = {
   name: "dcargo",
   category: "config",
   aliases: [],
-  usage: "dentrada <#canal>",
-  description: "Define um canal de boas vindas",
+  usage: `${config.prefix}dentrada <#canal>`,
+  description: "Define um cargo a todos os novos membros",
   run: (client, message, args, database) => {
 
     if (!message.member.permissions.has("ADMINISTRATOR"))

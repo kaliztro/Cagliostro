@@ -1,10 +1,11 @@
 const Discord = require("discord.js");
+const config = require("../../config.json")
 
 module.exports = {
   name: "emoji",
   category: "outros",
   aliases: [""],
-  usage: "!emoji e o nome do emoji.",
+  usage: `${config.prefix}emoji e o nome do emoji.`,
   description: "Envia o emoji escolhido no chat.",
   run: async (client, message, args) => {
 

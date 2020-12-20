@@ -7,7 +7,7 @@ module.exports = {
     category: "adm",
     aliases: ["web"],
     description: "Envia um webhook em um canal pré definido",
-    usage: "web 1 Titulo de embed / mensagem da embed / titulo fora da embed (esse ultimo é opicional)\n ou \n web 2 mensagem (essa n tem embed)",
+    usage: `${config.prefix}web 1 Titulo de embed / mensagem da embed / titulo fora da embed (esse ultimo é opicional)\n ou \n ${config.prefix}web 2 mensagem (essa n tem embed)`,
     run: async (client, message, args) => {
 
 	if (!message.member.permissions.has("MANAGE_MESSAGES"))

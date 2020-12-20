@@ -1,11 +1,12 @@
 const Discord = require("discord.js")
+const config = require("../../config.json")
 
 module.exports = {
    name: "lock",
    category: "adm",
    aliases: ["trancar"],
    description: "tranca | Destranca um canal.",
-   usage: "no canal que vc quer trancar digite **!lock on** ou **lock off*",
+   usage: `no canal que vc quer trancar digite *${config.prefix}lock on** ou **lock off*`,
    run: async (client, message, args) => { 
 
  if (!message.member.permissions.has("MANAGE_MESSAGES")) 

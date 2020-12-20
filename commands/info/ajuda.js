@@ -6,13 +6,32 @@ module.exports = {
     category: "info",
     aliases: ["aj"],
     description: "Mostra todos os comandos disponíveis do bot.",
+    usage: `${config.prefix}ajuda ou ${config.prefix}ajuda <nome do comando>`,
     run: async (client, message, args) => {
+
+      if (args[0]) {
+        const command = await client.commands.get(args[0]);
+  
+        if (!command) {
+          return message.channel.send("Comando desconhecido: " + args[0]);
+        }
+  
+        let embed = new Discord.MessageEmbed()
+          .setAuthor(command.name, "https://i.imgur.com/2ubNTXm.png" )
+          .addField("Descrição", command.description || "Não definido :(")
+          .addField("Como usar:", "`" + command.usage + "`" || "Não definido")
+          .addField("abreviação:", "`" + command.aliases + "`" || "Não possui")
+          .setColor(config.cor)
+  
+        return message.channel.send(embed);
+
+    } else {
 
       const ajuda = new Discord.MessageEmbed()
       .setTitle("Lista de comandos!")
       .setThumbnail("")
       .setColor(config.cor)
-      .setDescription("Reagir de acordo com o que Procura!\n\n📰 - Informações\n\n🛂 - Administração\n\n🎮 - Outros\n\n⚙️ - Config")
+      .setDescription(`Reagir de acordo com o que Procura!\n\n Na duvida use ${config.prefix}ajuda e o nome do comando \n\n📰 - Informações\n\n🛂 - Administração\n\n🎮 - Outros\n\n⚙️ - Config`)
       
   
     message.channel.send(ajuda).then(msg => {
@@ -44,7 +63,7 @@ module.exports = {
        infos.on('collect', r2 => {
  
         ajuda.setTitle("Commandos Informativos")
-        ajuda.setDescription(`**${config.prefix}ajuda [aj]**\n Mostra os comandos disponiveis\n **${config.prefix}avatar  [av]**\n Mostra o avatar do usuário ou de um bot.\nComo usar: ${config.prefix}avatar @nome do usuario\n **${config.prefix}botinfo  [bi]**\n Mostra as informações do bot.\n **${config.prefix}serverinfo [si]**\n Mostra as informações do server.\n **${config.prefix}userinfo [ui]** \nMostra as informações do usuario.\n**${config.prefix}ping  [p]** \n Mostra o ping do Bot.\n **${config.prefix}tempo** \n Mostra o tempo que o Bot esta online.\n**${config.prefix}ram**\n Mostra a ram que o bot esta usando.\n**${config.prefix}nivel**\n  Mostra o seu nivel no servidor.`)
+        ajuda.setDescription(`**${config.prefix}ajuda [aj]**\n\n **${config.prefix}avatar  [av]**\n\n**${config.prefix}botinfo  [bi]**\n\n **${config.prefix}serverinfo [si]**\n\n **${config.prefix}userinfo [ui]** \n\n**${config.prefix}ping  [p]** \n\n **${config.prefix}tempo** \n\n**${config.prefix}ram**\n\n**${config.prefix}nivel**`)
         msg.edit(ajuda)
         
       })
@@ -53,7 +72,7 @@ module.exports = {
       adm.on('collect', r2 => {
 
         ajuda.setTitle("Commandos de administraçao")
-        ajuda.setDescription(`**${config.prefix}anuncio [an]**\n Faz um anuncio no canal escolhido.\n **${config.prefix}apagar [a]**\n Apaga mensagens de um canal.\n **${config.prefix}expulsar**\n Expulsa um membro do servidor.\n Como usar: ${config.prefix}expulsar @nome do usuario  motivo\n **${config.prefix}ban**\n Bane um membro do servidor.\n Como usar ${config.prefix}ban @nome do usuario motivo.\n **${config.prefix}lock on**\n Tranca o canal.\n **${config.prefix}lock off**\n Destranca o canal.\n**${config.prefix}serverlist [sl]**\n Mostra os servidores em que o Bot está.\n**${config.prefix}sair**\n sai do servidor escolhido.\n**${config.prefix}webhook [web] 1 / 2**`)
+        ajuda.setDescription(`**${config.prefix}anuncio [an]**\n\n **${config.prefix}apagar [a]**\n\n **${config.prefix}expulsar**\n\n **${config.prefix}ban**\n\n**${config.prefix}lock on**\n\n **${config.prefix}lock off**\n\n**${config.prefix}serverlist [sl]**\n\n**${config.prefix}sair**\n\n**${config.prefix}webhook [web] 1 / 2**`)
         msg.edit(ajuda)
 
       })
@@ -61,7 +80,7 @@ module.exports = {
       outr.on('collect', r2 => {
           
         ajuda.setTitle("Outros commandos")
-        ajuda.setDescription(`**${config.prefix}cor**\n Muda a cor do seu nick.\n**${config.prefix}8ball [8]**\n Te da resposta para suas perguntas!.\n **${config.prefix}emoji**\n Envia um emoji no chat.\n Como usar: ${config.prefix}emoji nome do emoji\n **${config.prefix}coinflip [cf]**\n Jogo de Cara ou Coroa.\n **${config.prefix}jogardado [dado]**\n Joga o dado. 🎲.\n **${config.prefix}jogardados [dados]**\n Joga os dados. 🎲🎲.`)
+        ajuda.setDescription(`**${config.prefix}cor**\n\n**${config.prefix}8ball [8]**\n\n **${config.prefix}emoji**\n\n **${config.prefix}coinflip [cf]**\n\n **${config.prefix}jogardado [dado]**\n\n **${config.prefix}jogardados [dados]**\n`)
         msg.edit(ajuda)
 
       })
@@ -78,14 +97,14 @@ module.exports = {
       inicio.on('collect', r2 => {
 
         ajuda.setTitle("Lista de comandos!")
-        ajuda.setDescription("Reagir de acordo com o que Procura!\n\n📰 - Informações\n\n🛂 - Administração\n\n🎮 - Outros\n\n⚙️ - Config")
+        ajuda.setDescription(`Reagir de acordo com o que Procura!\n\n Na duvida use ${config.prefix}ajuda e o nome do comando \n\n📰 - Informações\n\n🛂 - Administração\n\n🎮 - Outros\n\n⚙️ - Config`)
         msg.edit(ajuda)
           
-        })
-
-       
+        })  
   
   })
+
+}
 
    }
 }
