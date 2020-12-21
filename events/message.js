@@ -10,7 +10,7 @@ module.exports = async (client, message) => {
 
     const menção = message.mentions.users.first()
     if(menção){
-    if(menção.id === `${client.user.id}`) return message.channel.send(`${emoji}   Olá ${message.member.user}! Meu prefixo é:  **${config.prefix}**   Para mais informações utilize: **${config.prefix}ajuda**`)
+    if(menção.id === `${client.user.id}`) return message.channel.send(`${emoji}   Olá ${message.author.username}! Meu prefixo é:  **${config.prefix}**   Para mais informações utilize: **${config.prefix}ajuda**`)
     };
 
 //sistema de XP
