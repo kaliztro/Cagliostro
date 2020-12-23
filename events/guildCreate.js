@@ -1,7 +1,6 @@
 // envia uma mensagem para o dono do bot quando o bot entra em um novo servidor
 const Discord = require('discord.js')
-const { donoID } = require("../config.json")
-const { cor } = require("../config.json")
+const { donoID, cor } = require("../config.json")
 
 module.exports = (client, guild, message) => {
 
