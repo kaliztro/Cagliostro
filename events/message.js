@@ -22,12 +22,14 @@ module.exports = async (client, message) => {
     global.nextLevel = '';
     global.canal = '';
     let addpontos = Math.floor(Math.random() * 7) + 8;
+    let nome  =  message.author.username
 
     database.ref(`Servidor/Levels/${message.guild.id}/${message.author.id}`)
         .once('value').then(async function (snap) {
             if (snap.val() == null) {
                 database.ref(`Servidor/Levels/${message.guild.id}/${message.author.id}`)
                     .set({
+                        name: nome,
                         xp: 0,
                         level: 1
                     })
@@ -36,6 +38,7 @@ module.exports = async (client, message) => {
                 nextLevel = snap.val().level * 1500;
                 database.ref(`Servidor/Levels/${message.guild.id}/${message.author.id}`)
                     .update({
+                        name: nome,
                         xp: xp
                     })
                 if (nextLevel <= xp) {
