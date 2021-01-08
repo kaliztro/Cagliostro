@@ -80,7 +80,7 @@ module.exports = {
       outr.on('collect', r2 => {
           
         ajuda.setTitle("Outros commandos")
-        ajuda.setDescription(`**${config.prefix}cor**\n\n**${config.prefix}8ball [8]**\n\n **${config.prefix}emoji**\n\n **${config.prefix}coinflip [cf]**\n\n **${config.prefix}jogardado [dado]**\n\n **${config.prefix}jogardados [dados]**\n`)
+        ajuda.setDescription(`**${config.prefix}cor**\n\n**${config.prefix}8ball [8]**\n\n **${config.prefix}emoji**\n\n **${config.prefix}coinflip [cf]**\n\n **${config.prefix}jogardado [dado]**\n\n **${config.prefix}jogardados [dados]**\n\n **${config.prefix}sugestao [s]** \n`)
         msg.edit(ajuda)
 
       })
@@ -88,7 +88,7 @@ module.exports = {
       configu.on('collect', r2 => {
 
         ajuda.setTitle("Lista de comandos!")
-        ajuda.setDescription(`**${config.prefix}dentrada**\n Define o canal onde serão envidas as mensagens de boas vindas.\n**${config.prefix}dsaida**\n Define o canal onde serão envidas as mensagens de saida.\n**${config.prefix}dcargo**\nDefine um cargo padão para os novos membros.\n**${config.prefix}rentrada**\nRemove a mensagem de Bem vindo.\n**${config.prefix}rsaida**\nRemove a mensagem de saida.\n**${config.prefix}rcargo**\nRemove o cargo padrão.`)
+        ajuda.setDescription(`**${config.prefix}dentrada**\n Define o canal onde serão envidas as mensagens de boas vindas.\n**${config.prefix}dsaida**\n Define o canal onde serão envidas as mensagens de saida.\n**${config.prefix}dcargo**\nDefine um cargo padão para os novos membros.\n**${config.prefix}dsugestao**\nDefine um canal para as sugestoes\n**${config.prefix}rentrada**\nRemove a mensagem de Bem vindo.\n**${config.prefix}rsaida**\nRemove a mensagem de saida.\n**${config.prefix}rcargo**\nRemove o cargo padrão.\n**${config.prefix}rsugestao**\nRemove o canal de sugestões`)
 
         msg.edit(ajuda)
           
