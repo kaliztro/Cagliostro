@@ -1,10 +1,10 @@
 const Discord = require("discord.js"); 
 const { prefix } = require("./config.json")
-const { token } = require("./local.json")
+const { token } = require("./heroku")
 
 //database
 const firebase = require('firebase');
-const firebaseConfig = require('./local.json')
+const firebaseConfig = require('./heroku')
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 const FB = require('firebase');
