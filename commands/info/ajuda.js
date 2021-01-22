@@ -72,7 +72,7 @@ module.exports = {
       adm.on('collect', r2 => {
 
         ajuda.setTitle("Commandos de administraçao")
-        ajuda.setDescription(`**${config.prefix}anuncio [an]**\n\n **${config.prefix}apagar [a]**\n\n **${config.prefix}expulsar**\n\n **${config.prefix}ban**\n\n**${config.prefix}lock on**\n\n **${config.prefix}lock off**\n\n**${config.prefix}serverlist [sl]**\n\n**${config.prefix}webhook [web] 1 / 2**`)
+        ajuda.setDescription(`**${config.prefix}anuncio [an]**\n\n **${config.prefix}apagar [a]**\n\n **${config.prefix}expulsar**\n\n **${config.prefix}ban**\n\n**${config.prefix}lock on**\n\n **${config.prefix}lock off**\n\n**${config.prefix}serverlist [sl]**\n\n**${config.prefix}webhook [web] 1 / 2**\n\n**${config.prefix}cargo**`)
         msg.edit(ajuda)
 
       })
