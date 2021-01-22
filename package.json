@@ -4,10 +4,13 @@
   "description": "Bot desenvolvido para gerenciar o servidor Parcieros da Loucura",
   "main": "index.js",
   "dependencies": {
+    "@discordjs/opus": "^0.3.3",
     "ascii-table": "0.0.9",
     "discloud-status": "^0.1.6",
     "discord.js": "^12.4.1",
     "express": "^4.17.1",
+    "ffmpeg": "0.0.4",
+    "ffmpeg-static": "^4.2.7",
     "firebase": "^8.0.2",
     "moment": "^2.29.1",
     "path": "^0.12.7",
