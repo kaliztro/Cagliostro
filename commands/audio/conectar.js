@@ -4,7 +4,7 @@ const path = require('path')
 
 module.exports = {
   name: "conectar",
-  description: "bot se conecta no canal de voz (n faz nada ainda).",
+  description: "bot se conecta no canal de voz.",
   usage: `${config.prefix}join`,
   category: "dono",
   aliases: ["join", "tocar", "audio"],
@@ -16,6 +16,8 @@ module.exports = {
     );
 
     let { voice } = message.member
+
+    if (!args[0]) return message.channel.send("audios disponiveis: **pqp**, **sai**, **fudeu**, **ah**, **cabra**")
 
     voice.channel.join().then((connection) => {
         connection.play(path.join(__dirname, `${args[0]}.mp3`))
