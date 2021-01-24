@@ -28,6 +28,9 @@ module.exports = {
 
                 message.channel.send(kick)
                 membro.kick(); 
+
+                message.delete()
+
         }
 }
 

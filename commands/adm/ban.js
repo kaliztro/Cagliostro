@@ -40,5 +40,7 @@ module.exports = {
             
         });
 
+        message.delete()
+
     }
 }
