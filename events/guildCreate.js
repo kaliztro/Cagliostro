@@ -1,13 +1,15 @@
 // envia uma mensagem para o dono do bot quando o bot entra em um novo servidor
 const Discord = require('discord.js')
-const { donoID, cor } = require("../config.json")
+const { donoID, cor, config } = require("../config.json")
+const firebase = require('firebase');
+const database = firebase.database();
 
-module.exports = (client, guild, message) => {
+module.exports = async (client, guild) => {
 
-    const user = client.users.cache.get(donoID)
-    const date = guild.createdAt
+    let user = client.users.cache.get(donoID)
+    let date = guild.createdAt
 
-    const Entrada = new Discord.MessageEmbed()
+    let Entrada = new Discord.MessageEmbed()
     .setTitle('**Entrei em um servidor**')
     .addField('**Nome**', guild.name)
     .addField('**ID**', guild.id)
@@ -21,7 +23,27 @@ module.exports = (client, guild, message) => {
     .setTimestamp()
   
     user.send(Entrada);
+
+//custom prefix
+
+    database.ref(`Servidor/Prefix/${guild.id}`)
+    .once('value').then(async function (snap) {
+        if (snap.val() == null) {
+            database.ref(`Servidor/Prefix/${guild.id}`)
+                .set({
+                    Prefix: `!`
+            })
+  
+          
+          }
+
+        })
+//------------------------------------
+
+
+
   }
+
 
 /**
  * Formata a data passada para o padrão do Brasil.
