@@ -44,12 +44,13 @@ client.channels.cache.get(Mcanal).send(embed)
 
       if (!member.user.bot){
 
-        database.ref(`Servidor/Entrada/Cargo/${member.guild.id}`)
-  .once('value').then(async function (snap) {
+        database.ref(`Servidor/Entrada/Cargo/${message.guild.id}`)
+                 .once('value').then(async function (snap) {
 
-    if (snap.val() == null) return;
+                if (snap.val() == null) return;
           
-    const role = snap.val().CargoID
+                  let role = snap.val().CargoID
+        
     
         member.roles.add(role)
       })
