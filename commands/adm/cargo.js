@@ -15,7 +15,7 @@ module.exports = {
         var cargo = message.mentions.roles.first() || message.guild.roles.cache.get(args[0]);
         if(!cargo) return message.reply('Você não mencionou nenhum cargo. \n não sou adivinho.');
 
-        if(!message.member.hasPermission("MANAGE_ROLES")) return message.reply('Parece que vc não tem permição para isso, porvavor peça ajuda de um adulto.');
+        if(!message.member.hasPermission("MANAGE_ROLES")) return message.reply('Parece que vc não tem permissão para isso, porfavor peça ajuda de um adulto.');
 
         membro.roles.add(cargo)
 

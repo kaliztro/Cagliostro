@@ -9,6 +9,9 @@ module.exports = {
     description: "Define o cargo de mutado",
     run: (client, message, args, database) => {
 
+        if (!message.member.permissions.has("ADMINISTRATOR"))
+    return message.reply("🛑 Parece que vc está tentando usar um comando que é permitido somente aos ADMs 🛑");
+
  let role = message.mentions.roles.first()
 
 database.ref(`Servidor/Mutado/${message.guild.id}`)
