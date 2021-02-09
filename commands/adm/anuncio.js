@@ -9,7 +9,7 @@ module.exports = {
     description: "Faz um anuncio no canal escolhido.",
     run: async (client, message, args) => {
 
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("Você não possui permição para utilizar este comando.")
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("Você não possui permissão para utilizar este comando.")
     
     message.channel.send(`Em qual canal você deseja anunciar?`).then(msg =>{
         let cp = message.channel.createMessageCollector(x => x.author.id === message.author.id, {max: 1}) 

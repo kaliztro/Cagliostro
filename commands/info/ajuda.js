@@ -72,7 +72,7 @@ module.exports = {
       adm.on('collect', r2 => {
 
         ajuda.setTitle("Commandos de administraçao")
-        ajuda.setDescription(`**${config.prefix}anuncio [an]**\n\n **${config.prefix}apagar [a]**\n\n **${config.prefix}expulsar**\n\n **${config.prefix}ban**\n\n**${config.prefix}lock on**\n\n **${config.prefix}lock off**\n\n**${config.prefix}serverlist [sl]**\n\n**${config.prefix}webhook [web] 1 / 2**\n\n**${config.prefix}cargo**`)
+        ajuda.setDescription(`**${config.prefix}anuncio [an]**\n\n **${config.prefix}apagar [a]**\n\n **${config.prefix}expulsar**\n\n **${config.prefix}ban**\n\n **${config.prefix}mutar**\n\n**${config.prefix}lock on**\n\n **${config.prefix}lock off**\n\n**${config.prefix}serverlist [sl]**\n\n**${config.prefix}webhook [web] 1 / 2**\n\n**${config.prefix}cargo**`)
         msg.edit(ajuda)
 
       })
@@ -87,8 +87,8 @@ module.exports = {
       
       configu.on('collect', r2 => {
 
-        ajuda.setTitle("Lista de comandos!")
-        ajuda.setDescription(`**${config.prefix}dentrada**\n Define o canal onde serão envidas as mensagens de boas vindas.\n**${config.prefix}dsaida**\n Define o canal onde serão envidas as mensagens de saida.\n**${config.prefix}dcargo**\nDefine um cargo padão para os novos membros.\n**${config.prefix}dsugestao**\nDefine um canal para as sugestoes\n**${config.prefix}rentrada**\nRemove a mensagem de Bem vindo.\n**${config.prefix}rsaida**\nRemove a mensagem de saida.\n**${config.prefix}rcargo**\nRemove o cargo padrão.\n**${config.prefix}rsugestao**\nRemove o canal de sugestões`)
+        ajuda.setTitle("config do server!")
+        ajuda.setDescription(`**${config.prefix}dentrada**\n Define o canal onde serão envidas as mensagens de boas vindas.\n**${config.prefix}dsaida**\n Define o canal onde serão envidas as mensagens de saida.\n**${config.prefix}dcargo**\nDefine um cargo padão para os novos membros.\n**${config.prefix}dsugestao**\nDefine um canal para as sugestoes\n**${config.prefix}dmute**\ndefine o cargo de mutado**${config.prefix}\nrentrada**\nRemove a mensagem de Bem vindo.\n**${config.prefix}rsaida**\nRemove a mensagem de saida.\n**${config.prefix}rcargo**\nRemove o cargo padrão.\n**${config.prefix}rsugestao**\nRemove o canal de sugestões\n**${config.prefix}rmute**\nRemove o cargo mutado`)
 
         msg.edit(ajuda)
           
