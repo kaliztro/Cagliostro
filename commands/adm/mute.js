@@ -7,7 +7,7 @@ const ms = require("ms");
             category: "adm",
             aliases: ["mutar"],
             description: "muta temporariamente um membro do servidor.",
-            usage: `${config.prefix}mute tempo`,
+            usage: `${config.prefix}mute @usuario tempo motivo `,
             run: async (client, message, args, database, member) => {
 
                 message.delete()
@@ -47,10 +47,8 @@ const ms = require("ms");
                 
                 user.roles.add(role)
 
-                const m = await message.channel.send("O alvo foi silenciado.");
-                m.edit(
-                  logembed
-                );
+                const m = await message.channel.send(logembed);
+              
                           
                   setTimeout(function()  {
                   user.roles.remove(role)
