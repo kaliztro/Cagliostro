@@ -19,23 +19,25 @@ module.exports = {
       return message.channel.send("Primeiro você deve mencionar um canal")
     }
 
-    database.ref(`Servidor/Saida/${message.guild.id}`)
+    database.ref(`Servidor/${message.guild.id}/Saida`)
     .once('value').then(async function (snap) {
         if (snap.val() == null) {
-            database.ref(`Servidor/Saida/${message.guild.id}`)
+            database.ref(`Servidor/${message.guild.id}/Saida`)
                 .set({
                     server: `${message.guild.id}`,
-                    canal: `${opa.id}`
+                    canal: `${opa.id}`,
+                    nome: `${message.guild.name}`
                 })
 
                 message.channel.send(`A mensagem de saida foi definida no canal: ${opa}`)
 
               } else {
 
-                database.ref(`Servidor/Saida/${message.guild.id}`)
+                database.ref(`Servidor/${message.guild.id}/Saida`)
                 .update({
                   server: `${message.guild.id}`,
-                  canal: `${opa.id}`
+                  canal: `${opa.id}`,
+                  nome: `${message.guild.name}`
                 })
 
                 message.channel.send(`A mensagem de saida foi redefinida para o canal: ${opa}`)   

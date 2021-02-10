@@ -18,7 +18,7 @@ if (!args[0]) {
   return message.channel.send(`${message.author.username}, forneça uma sugestão de no máximo 1000 caracteres.`);
 } else {
 
-   database.ref(`Servidor/Canal de Sugestao/${message.guild.id}`)
+   database.ref(`Servidor/${message.guild.id}/Canal de Sugestao`)
    .once('value').then(async function (snap){
     if (snap.val() == null) return message.channel.send(`Esse servidor não possui canal de sugestão. \n Use o comando **${config.prefix}dsugestao** para adicionar um novo canal ou contate um ADM.`);
           

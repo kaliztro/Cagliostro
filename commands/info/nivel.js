@@ -9,7 +9,7 @@ module.exports = {
   description: "Mostra seu nivel no servidor.",
   run: (client, message, args, database) => {
 
-        database.ref(`Servidor/Levels/${message.guild.id}/${message.author.id}`)
+        database.ref(`Servidor/${message.guild.id}/Levels/${message.author.id}`)
             .once('value').then(function (snap) {
                 const levell = snap.val().level
                 const xpp = snap.val().xp

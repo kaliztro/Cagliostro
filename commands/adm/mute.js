@@ -14,7 +14,7 @@ const ms = require("ms");
 
                 if(!message.member.hasPermission("MUTE_MEMBERS"))return message.channel.send("Prece que vc não tem mana suficiente para isso.")
 
-                database.ref(`Servidor/Mutado/${message.guild.id}`)
+                database.ref(`Servidor/${message.guild.id}/Mutado`)
                  .once('value').then(async function (snap) {
 
                 if (snap.val() == null) return;

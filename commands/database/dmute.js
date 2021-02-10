@@ -14,10 +14,10 @@ module.exports = {
 
  let role = message.mentions.roles.first()
 
-database.ref(`Servidor/Mutado/${message.guild.id}`)
+database.ref(`Servidor/${message.guild.id}/Mutado`)
 .once('value').then(async function (snap) {
     if (snap.val() == null) {
-        database.ref(`Servidor/Mutado/${message.guild.id}`)
+        database.ref(`Servidor/${message.guild.id}/Mutado`)
             .set({
                 CargoID: `${role.id}`
             })
@@ -25,7 +25,7 @@ database.ref(`Servidor/Mutado/${message.guild.id}`)
             message.channel.send(`o cargo definido foi: ${role}`)
             
               } else {
-                database.ref(`Servidor/Mutado/${message.guild.id}`)
+                database.ref(`Servidor/${message.guild.id}/Mutado`)
                 .update({
                     CargoID: `${role.id}`
                 })

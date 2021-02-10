@@ -12,25 +12,29 @@ module.exports = {
     if(!args[0]) return message.channel.send("Você deve fornecer o novo prefixo ou digitar remove para usar o prefixo padrão.")
 
     if (message.content.includes("remove")) {
-        database.ref(`Servidor/Prefix/${message.guild.id}`)
+        database.ref(`Servidor/${message.guild.id}/Prefix`)
         .set({
-            Prefix: `!`
+            Prefix: `!`,
+            nome: `${message.guild.name}`
         })
         message.channel.send("O prefixo foi resetado com sucesso.")
+
     } else 
 
-database.ref(`Servidor/Prefix/${message.guild.id}`)
+database.ref(`Servidor/${message.guild.id}/Prefix`)
     .once('value').then(async function (snap) {
     if (snap.val() == null) {
-            database.ref(`Servidor/Prefix/${message.guild.id}`)
+            database.ref(`Servidor/${message.guild.id}/Prefix`)
                 .set({
-                    Prefix: `!`
+                    Prefix: `!`,
+                    nome: `${message.guild.name}`
             })
 
           } else {
-            database.ref(`Servidor/Prefix/${message.guild.id}`)
+            database.ref(`Servidor/${message.guild.id}/Prefix`)
             .set({
-                Prefix: `${args[0]}`
+                Prefix: `${args[0]}`,
+                nome: `${message.guild.name}`
             })
             message.channel.send(`Prefixo alterado com sucesso Para. ${args[0]}`)
           }

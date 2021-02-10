@@ -26,10 +26,10 @@ module.exports = async (client, guild) => {
 
 //custom prefix
 
-    database.ref(`Servidor/Prefix/${guild.id}`)
+    database.ref(`Servidor/${guild.id}/Prefix`)
     .once('value').then(async function (snap) {
         if (snap.val() == null) {
-            database.ref(`Servidor/Prefix/${guild.id}`)
+            database.ref(`Servidor/${guild.id}/Prefix`)
                 .set({
                     Prefix: `!`
             })

@@ -1,5 +1,4 @@
 const Discord = require("discord.js"); 
-const { prefix } = require("./config.json")
 const { token } = require("./heroku")
 
 //database
@@ -7,7 +6,6 @@ const firebase = require('firebase');
 const firebaseConfig = require('./heroku')
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
-const FB = require('firebase');
 //
 
 const client = new Discord.Client()
@@ -15,16 +13,30 @@ const client = new Discord.Client()
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 
+client.login(token);
 
 ["command", "event"].forEach(handler => {
     require(`./handlers/${handler}`)(client);
 });
 
-client.on("message", async message => {
-   
 
+client.on("message", async message => {
+
+  database.ref(`Servidor/${message.guild.id}/Prefix`)
+  .once('value').then(async function (snap) {
+    
+    if (snap.val() == null) { 
+      database.ref(`Servidor/${message.guild.id}/Prefix`)
+          .set({
+              Prefix: `!`,
+              nome: `${message.guild.name}`
+      })
+    };
+
+    const prefix = snap.val().Prefix
+  
     if (message.author.bot) return;
-    //if (!message.guild) return; // isso impede de enviar comandos na dm ex apagardm
+    if (!message.guild) return; // isso impede de enviar comandos na dm ex apagardm
     if (!message.content.startsWith(prefix)) return;
 
     //if (!message.member) message.member = await message.guild.fetchMember(message); //isso impede o comando apagarDM
@@ -40,20 +52,11 @@ client.on("message", async message => {
 
 
     if (command) 
-        command.run(client, message, args, database, firebase, FB);
+        command.run(client, message, args, database, firebase);
 
     if (!command) message.reply(`o comando "**${message.content}**" nao existe. Digite !ajuda para ver a lista de comandos 😉 `);
+    
+    
+})
 
-});
-
-//mostra em um canal determinado as mensagens enviada no DM
-
-client.on("message",(msg)=>{
-    if(msg.channel.type == "dm"){
-    if (msg.author.bot) return;
-    if (msg.content.startsWith(prefix)) return;
-      client.channels.cache.get('740355595563171851').send(`${msg.author.username} 🗣️ disse: ${msg.content}`);
-    }
-  });
-
-client.login(token);
+})

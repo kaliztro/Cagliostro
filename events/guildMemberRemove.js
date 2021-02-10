@@ -5,7 +5,7 @@ const config = require('../config.json')
 
 module.exports = async (client, member, message, guild) => {
 
-  database.ref(`Servidor/Saida/${member.guild.id}`)
+  database.ref(`Servidor/${member.guild.id}/Saida`)
   .once('value').then(async function (snap) {
 
     if (snap.val() == null) return;

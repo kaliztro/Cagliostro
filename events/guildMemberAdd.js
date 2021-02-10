@@ -5,7 +5,7 @@ const config = require('../config.json')
 
 module.exports = async (client, member, message, guild) => {
 
-  database.ref(`Servidor/Entrada/${member.guild.id}`)
+  database.ref(`Servidor/${member.guild.id}/Entrada`)
   .once('value').then(async function (snap) {
 
     if (snap.val() == null) return;
@@ -44,7 +44,7 @@ client.channels.cache.get(Mcanal).send(embed)
 
       if (!member.user.bot){
 
-        database.ref(`Servidor/Entrada/Cargo/${message.guild.id}`)
+        database.ref(`Servidor/${member.guild.id}/Entrada/Cargo`)
                  .once('value').then(async function (snap) {
 
                 if (snap.val() == null) return;
