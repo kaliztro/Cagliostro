@@ -52,9 +52,9 @@ client.on("message", async message => {
 
 
     if (command) 
-        command.run(client, message, args, database, firebase);
+        command.run(client, message, args, database, firebase, prefix);
 
-    if (!command) message.reply(`o comando "**${message.content}**" nao existe. Digite !ajuda para ver a lista de comandos 😉 `);
+    if (!command) message.reply(`o comando "**${message.content}**" nao existe. Digite **${prefix}ajuda** para ver a lista de comandos 😉 `);
     
     
 })
