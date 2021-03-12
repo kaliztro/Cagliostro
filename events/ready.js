@@ -2,7 +2,9 @@ const config = require("../config.json")
 const firebase = require('firebase');
 const database = firebase.database();
 
-module.exports = async (client, message) => { 
+module.exports = async (client, message) => {
+
+  setInterval(() => { 
 
     database.ref(`DONO`)
   .once('value').then(async function (snap) {
@@ -10,11 +12,13 @@ module.exports = async (client, message) => {
     if (snap.val() == null) return;
           
     const status = snap.val().Status
-   
+  
   client.user.setPresence({ activity: { name: ` ${status}`, type: 'LISTENING' }, status: 'online' })
-  console.log(`Eu estou online agora, meu nome é ${client.user.username}. Há ${client.users.cache.size} usuario(s) em ${client.guilds.cache.size} servidor(es)!`)
   })
 
+}, 15 * 1000)
+
+console.log(`Eu estou online agora, meu nome é ${client.user.username}. Há ${client.users.cache.size} usuario(s) em ${client.guilds.cache.size} servidor(es)!`)
   
   // timer para o bot ser reiniciado na discloud
   
