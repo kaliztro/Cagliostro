@@ -46,7 +46,8 @@ module.exports = async (client, message) => {
                 database.ref(`Servidor/${message.guild.id}/Levels/${message.author.id}`)
                     .update({
                         name: nome,
-                        xp: xp
+                        xp: xp,
+                        nextLevel: nextLevel
                     })
                 if (nextLevel <= xp) {
                     nextLevel = snap.val().level + 1;

@@ -9,15 +9,18 @@ module.exports = {
   description: "Mostra seu nivel no servidor.",
   run: (client, message, args, database) => {
 
-        database.ref(`Servidor/${message.guild.id}/Levels/${message.author.id}`)
+    let user = message.mentions.users.first() || message.author;
+
+        database.ref(`Servidor/${message.guild.id}/Levels/${user.id}`)
             .once('value').then(function (snap) {
                 const levell = snap.val().level
                 const xpp = snap.val().xp
+                const nextLevel = snap.val().nextLevel
                 let avatarr = message.author.avatarURL;
                 let lEmbed = new Discord.MessageEmbed()
                     .setThumbnail(avatarr)
                     .setTitle("``Nível``")
-                    .setDescription(`${message.author.tag}`)
+                    .setDescription(`${user.tag}`)
                     .addField(`Nível atual:`, `${levell}`)
                     .addField(`XP`, `${xpp}/${nextLevel}`)
                     .setColor("#3086c9")
