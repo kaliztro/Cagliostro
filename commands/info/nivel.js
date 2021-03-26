@@ -9,7 +9,7 @@ module.exports = {
   description: "Mostra seu nivel no servidor.",
   run: (client, message, args, database) => {
 
-    let user = message.mentions.users.first() || message.author;
+    let user = message.mentions.users.first() || client.users.cache.get(args[0]) || message.author;
 
         database.ref(`Servidor/${message.guild.id}/Levels/${user.id}`)
             .once('value').then(function (snap) {
