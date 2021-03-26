@@ -1,6 +1,6 @@
 {
   "name": "cagliostro",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Bot desenvolvido para gerenciar o servidor Parcieros da Loucura",
   "main": "index.js",
   "dependencies": {
