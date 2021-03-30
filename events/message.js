@@ -5,6 +5,8 @@ const database = firebase.database();
 
 module.exports = async (client, message) => {
 
+    if (!message.guild) return;
+
     database.ref(`Servidor/${message.guild.id}/Prefix`)
   .once('value').then(async function (snap) {
 
