@@ -1,12 +1,13 @@
 const Discord = require("discord.js");
 const config = require("../../config.json")
+const p = require("../../index")
 
 module.exports = {
   name: "sair",
   category: "adm",
   aliases: ["dono"],
   description: "sai do servidor selecionado.",
-  usage: `digite ${config.prefix}sair e o id do servidor. obs: somente o dono do bot pode usar esse comando.`,
+  usage: `digite ${p.prefix}sair e o id do servidor. obs: somente o dono do bot pode usar esse comando.`,
   run: async (client, message, args) => {
 
     if(message.author.id != config.donoID) {

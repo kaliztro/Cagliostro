@@ -1,6 +1,7 @@
   
 const Discord = require('discord.js')
 const config = require("../../config.json");
+const p = require("../../index")
 
 const moment = require('moment')
 moment.updateLocale('pt-br');
@@ -10,7 +11,7 @@ module.exports = {
     category: "info",
     aliases: ["si"],
     description: "Informação sobre o servidor.",
-    usage: `${config.prefix}serverinfo`,
+    usage: `${p.prefix}serverinfo`,
     run: async (client, message, args) => {
 
       const verificationLevels = {

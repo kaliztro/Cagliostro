@@ -1,11 +1,12 @@
 const Discord = require('discord.js');
 const config = require("../../config.json");
+const p = require("../../index")
 
 module.exports = {
     name: "anuncio",
     category: "adm",
     aliases: ["an"],
-    usage: `${config.prefix}anuncio ou ${config.prefix}an`,
+    usage: `${p.prefix}anuncio ou ${p.prefix}an`,
     description: "Faz um anuncio no canal escolhido.",
     run: async (client, message, args) => {
 

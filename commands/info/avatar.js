@@ -1,12 +1,14 @@
 const Discord = require("discord.js");
 const config = require("../../config.json");
 
+const p = require("../../index")
+
 module.exports = {
     name: "avatar",
     category: "info",
     aliases: ["av"],
     description: "Mostra o seu avatar, ou o avatar de quem vc mencionar.",
-    usage: `${config.prefix}avatar @usuario, ou somente ${config.prefix}avatar para ver o seu proprio avatar.`,
+    usage: `${p.prefix}avatar @usuario, ou somente ${p.prefix}avatar para ver o seu proprio avatar.`,
     run: async (client, message, args) => {
 
         let user = message.mentions.users.first() || client.users.cache.get(args[0]) || message.author;

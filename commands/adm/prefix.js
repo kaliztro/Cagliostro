@@ -1,12 +1,13 @@
 const Discord = require("discord.js")
 const config = require("../../config.json")
+const p = require("../../index")
 
 module.exports = {
    name: "prefix",
    category: "adm",
    aliases: ["prefixo"],
    description: "Altera o prefixo do bot.",
-   usage: `Digite *${config.prefix}prefix e novo prefix`,
+   usage: `Digite *${p.prefix}prefix e novo prefix`,
    run: async (client, message, args, database) => { 
 
     if(!args[0]) return message.channel.send("Você deve fornecer o novo prefixo ou digitar remove para usar o prefixo padrão.")
@@ -17,7 +18,7 @@ module.exports = {
             Prefix: `!`,
             nome: `${message.guild.name}`
         })
-        message.channel.send("O prefixo foi resetado com sucesso.")
+        message.channel.send("O prefixo foi resetado com sucesso.\n Prefixo padrão: !")
 
     } else 
 

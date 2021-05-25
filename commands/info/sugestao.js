@@ -1,12 +1,13 @@
 const Discord = require("discord.js");
 const config = require("../../config.json");
+const p = require("../../index")
 
 module.exports = {
     name: "sugestao",
     category: "info",
     aliases: ["s", "sac"],
     description: "use esse comando para enviar sugestões aos membros da adm do servidor.",
-    usage: `${config.prefix}sugestao <sua sugestao aqui>`,
+    usage: `${p.prefix}sugestao <sua sugestao aqui>`,
     run: async (client, message, args, database) => {
 
 message.delete();
@@ -20,7 +21,7 @@ if (!args[0]) {
 
    database.ref(`Servidor/${message.guild.id}/Canal de Sugestao`)
    .once('value').then(async function (snap){
-    if (snap.val() == null) return message.channel.send(`Esse servidor não possui canal de sugestão. \n Use o comando **${config.prefix}dsugestao** para adicionar um novo canal ou contate um ADM.`);
+    if (snap.val() == null) return message.channel.send(`Esse servidor não possui canal de sugestão. \n Use o comando **${p.prefix}dsugestao** para adicionar um novo canal ou contate um ADM.`);
           
     const canal = snap.val().canal
 

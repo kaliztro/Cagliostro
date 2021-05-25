@@ -1,11 +1,11 @@
 const Discord = require("discord.js")
-const config = require("../../config.json")
+const p = require("../../index")
 
 module.exports = {
   name: "dados",
   category: "outros",
   aliases: ["jogardados"],
-  usage: `${config.prefix}dados`,
+  usage: `${p.prefix}dados`,
   description: "joga os dados. 🎲🎲",
   run: async (client, message, args) => {
 

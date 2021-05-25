@@ -1,10 +1,10 @@
 const Discord = require("discord.js"); 
-const { token } = require("./heroku")
+const { token } = require("./functions")
 const coisa = require('./config.json')
 
 //database
 const firebase = require('firebase');
-const firebaseConfig = require('./heroku')
+const firebaseConfig = require('./functions')
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 //
@@ -25,22 +25,18 @@ client.on("message", async message => {
   if (message.guild)
 
   database.ref(`Servidor/${message.guild.id}/Prefix`)
-  .once('value').then(async function (snap) {
-    
-    if (snap.val() == null) { 
-      database.ref(`Servidor/${message.guild.id}/Prefix`)
-          .set({
-              Prefix: `!`,
-              nome: `${message.guild.name}`
-      })
-    };
 
-    let prefix = snap.val().Prefix
+  .once('value').then(async function (snap) {
+
+    let v = snap.val().Prefix
   
+    let prefix = v;
+
+    exports.prefix = prefix;
+
+
     if (message.author.bot) return;
     if (!message.content.startsWith(prefix)) return;
-
-    //if (!message.member) message.member = await message.guild.fetchMember(message); //isso impede o comando apagarDM
 
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const cmd = args.shift().toLowerCase();

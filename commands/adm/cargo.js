@@ -1,12 +1,13 @@
 const Discord = require('discord.js');
 const config = require("../../config.json");
+const p = require("../../index")
 
 module.exports = {
         name: "cargo",
         category: "adm",
         aliases: ["cargo"],
         description: "Atribuii um cargo ao membro mencionado.",
-        usage: `${config.prefix}cargo @membro @cargo`,
+        usage: `${p.prefix}cargo @membro @cargo`,
         run: async (client, message, args) => {
 
         var membro = message.mentions.members.first() || message.guild.members.cache.get(args[0]);

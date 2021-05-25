@@ -1,12 +1,13 @@
 const Discord = require('discord.js');
 const config = require("../../config.json");
+const p = require("../../index")
 
 module.exports = {
         name: "expulsar",
         category: "adm",
         aliases: ["expulsar"],
         description: "Expulsa um membro do servidor.",
-        usage: `${config.prefix}expulsar @membro motivo`,
+        usage: `${p.prefix}expulsar @membro motivo`,
         run: async (client, message, args) => {
 
         var membro = message.mentions.members.first() || message.guild.members.cache.get(args[0]);

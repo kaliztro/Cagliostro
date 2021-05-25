@@ -1,12 +1,13 @@
 const Discord = require("discord.js")
 const config = require("../../config.json")
 const FB = require('firebase');
+const p = require("../../index")
 
 module.exports = {
     name: "rmute",
     category: "config",
     aliases: [],
-    usage: `${config.prefix}rmute <@cargo>`,
+    usage: `${p.prefix}rmute <@cargo>`,
     description: "Remove o cargo definido.",
     run: (client, message, args) => {
       

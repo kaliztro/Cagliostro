@@ -2,12 +2,14 @@ const discloud = require("discloud-status");
 const config = require("../../config.json")
 const Discord = require("discord.js");
 
+const p = require("../../index")
+
 module.exports = {
   name: "ram",
   category: "info",
   aliases: [],
   description: "Mostra a ram que o bot esta usando.",
-  usage: `${config.prefix}ram`,
+  usage: `${p.prefix}ram`,
   run: async (client, message, args) => {
 
 

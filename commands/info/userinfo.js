@@ -4,13 +4,13 @@ const moment = require('moment');
 const config = require("../../config.json");
 moment.locale('pt-BR');
 
-
+const p = require("../../index")
 module.exports = {
     name: "userinfo",
     category: "info",
     aliases: ["ui", "user"],
     description: "Mostra as informações do usuario",
-    usage: `${config.prefix}userinfo`,
+    usage: `${p.prefix}userinfo`,
 
     run: async (client, message, args) => {
     let userArray = message.content.split(" ");

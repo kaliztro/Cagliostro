@@ -3,21 +3,18 @@ const config = require("../config.json")
 const firebase = require('firebase');
 const database = firebase.database();
 
+const c = require("../index")
+
 module.exports = async (client, message) => {
 
     if (!message.guild) return;
-
-    database.ref(`Servidor/${message.guild.id}/Prefix`)
-  .once('value').then(async function (snap) {
-
-    const prefix = snap.val().Prefix
 
     const emoj = client.guilds.cache.get("545386837846523905");
     const emoji = emoj.emojis.cache.find(emoji => emoji.name === "cagliostro");
 
     const menção = message.mentions.users.first()
     if(menção){
-    if(menção.id === `${client.user.id}`) return message.channel.send(`${emoji}   Olá ${message.author.username}! Meu prefixo neste servidor é:  **${prefix}**   Para mais informações utilize: **${prefix}ajuda**`)
+    if(menção.id === `${client.user.id}`) return message.channel.send(`${emoji}   Olá ${message.author.username}! Meu prefixo neste servidor é:  **${c.prefix}**   Para mais informações utilize: **${c.prefix}ajuda**`)
     };
 
 //sistema de XP
@@ -25,7 +22,7 @@ module.exports = async (client, message) => {
     if (message.author.bot) return;
     if (message.channel.type == "dm") return;   
 
-    if (message.content.startsWith(prefix)) return;
+    if (message.content.startsWith(c.prefix)) return;
 
     global.xp = '';
     global.nextLevel = '';
@@ -104,5 +101,5 @@ module.exports = async (client, message) => {
          })
         
 // fim do sistema de XP
-    })
-};
+    }
+

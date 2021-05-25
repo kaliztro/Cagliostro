@@ -1,11 +1,12 @@
 const Discord = require("discord.js")
 const config = require("../../config.json")
+const p = require("../../index")
 
 module.exports = {
     name: "dmute",
     category: "config",
     aliases: [],
-    usage: `${config.prefix}dmute <@cargo>`,
+    usage: `${p.prefix}dmute <@cargo>`,
     description: "Define o cargo de mutado",
     run: (client, message, args, database) => {
 

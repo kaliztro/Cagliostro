@@ -1,12 +1,13 @@
 const Discord = require('discord.js');
 const config = require("../../config.json")
+const p = require("../../index")
 
 module.exports = {
     name: "falar",
     category: "adm",
     aliases: ["f"],
     description: "Bot fala o que for escrito.",
-    usage: `${config.prefix}falar #canal conteudo da mensagem`,
+    usage: `${p.prefix}falar #canal conteudo da mensagem`,
     run: async (client, message, args) => {
 
         if (!message.member.permissions.has("MANAGE_MESSAGES"))

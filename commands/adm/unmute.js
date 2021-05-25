@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const config = require("../../config.json");
+const p = require("../../index")
 
 
         module.exports = {
@@ -7,7 +8,7 @@ const config = require("../../config.json");
             category: "adm",
             aliases: ["desmutar"],
             description: "desmuta.",
-            usage: `${config.prefix}unmute @usuario`,
+            usage: `${p.prefix}unmute @usuario`,
             run: async (client, message, args, database, member) => {
 
                 message.delete()

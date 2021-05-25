@@ -1,12 +1,13 @@
 const Discord = require("discord.js");
 const config = require("../../config.json");
+const p = require("../../index")
 
 module.exports = {
     name: "cor",
     category: "outros",
     aliases: ["mudarcor"],
     description: "Muda a sua cor.",
-    usage: `${config.prefix}cor e o nome da cor`,
+    usage: `${p.prefix}cor e o nome da cor`,
     run: async (client, message, args) => {
 
         const guild = client.guilds.cache.get("545386837846523905");
@@ -14,7 +15,7 @@ module.exports = {
 
     const coresEmbed = new Discord.MessageEmbed()
     .setTitle('Cores disponiveis')
-    .setDescription(`*ciano\n*laranja\n*verde\n*preto\n*branco\n*rosa\n*roxo\n*amarelo\n*azul\n*marrom \n\n Para remover digite ${config.prefix}cor remover`)
+    .setDescription(`*ciano\n*laranja\n*verde\n*preto\n*branco\n*rosa\n*roxo\n*amarelo\n*azul\n*marrom \n\n Para remover digite ${p.prefix}cor remover`)
     .setColor(config.cor)
 
     var string = args.join(" ");

@@ -1,12 +1,13 @@
 const Discord = require("discord.js")
 const config = require("../../config.json")
 const FB = require('firebase');
+const p = require("../../index")
 
 module.exports = {
   name: "rsugestao",
   category: "config",
   aliases: [],
-  usage: `${config.prefix}rsugestao <#canal>`,
+  usage: `${p.prefix}rsugestao <#canal>`,
   description: "Remove o canal de sugestões.",
   run: (client, message, args, firebase) => {
 

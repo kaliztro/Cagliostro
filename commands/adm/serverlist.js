@@ -1,12 +1,13 @@
 const Discord = require("discord.js");
 const config = require("../../config.json")
+const p = require("../../index")
 
 module.exports = {
   name: "serverlist",
   category: "adm",
   aliases: ["sl"],
   description: "mostra os servidores em que o bot esta.",
-  usage: `${config.prefix}serverlist`,
+  usage: `${p.prefix}serverlist`,
   run: async (client, message, args) => {
 
     if (!message.member.permissions.has("ADMINISTRATOR"))

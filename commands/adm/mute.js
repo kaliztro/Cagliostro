@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const config = require("../../config.json");
+const p = require("../../index")
 const ms = require("ms");
 
         module.exports = {
@@ -7,7 +8,7 @@ const ms = require("ms");
             category: "adm",
             aliases: ["mutar"],
             description: "muta temporariamente um membro do servidor.",
-            usage: `${config.prefix}mute @usuario tempo motivo `,
+            usage: `${p.prefix}mute @usuario tempo motivo `,
             run: async (client, message, args, database, member) => {
 
                 message.delete()
@@ -21,7 +22,7 @@ const ms = require("ms");
           
                   let role = snap.val().CargoID
                               
-                if(!role) return message.channel.send(`não encontrei o cargo Mutado. use ${config.prefix}dmute @cargo`)
+                if(!role) return message.channel.send(`não encontrei o cargo Mutado. use ${p.prefix}dmute @cargo`)
                 
                 let user = message.mentions.members.first()
                 if(!user) return message.channel.send("Vc precisa mencionar alguem. Tu sabe deisso né?")

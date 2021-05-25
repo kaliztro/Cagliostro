@@ -1,13 +1,13 @@
-
   const Discord = require('discord.js')
   const config = require('../../config.json')
+  const p = require("../../index")
 
   module.exports = {
     name: "falardm",
     category: "dono",
     aliases: ["fdm"],
     description: "Bot fala o que for escrito para o usuario mencinado no privado.",
-    usage: `${config.prefix}falardm @usuario conteudo da mensagem`,
+    usage: `${p.prefix}falardm @usuario conteudo da mensagem`,
     run: async (client, message, args) => {
 
       if(message.author.id != config.donoID) {

@@ -1,18 +1,14 @@
 const Discord = require("discord.js");
 const config = require("../../config.json");
+const p = require("../../index")
 
 module.exports = {
     name: "ajuda",
     category: "info",
     aliases: ["aj"],
     description: "Mostra todos os comandos disponíveis do bot.",
-    usage: `${config.prefix}ajuda ou ${config.prefix}ajuda <nome do comando>`,
+    usage: `${p.prefix}ajuda ou ${p.prefix}ajuda <nome do comando>`,
     run: async (client, message, args, database) => {
-
-      database.ref(`Servidor/${message.guild.id}/Prefix`)
-      .once('value').then(async function (snap) {
-
-        const prefix = snap.val().Prefix
 
       
       if (args[0]) {
@@ -37,7 +33,7 @@ module.exports = {
       .setTitle("Lista de comandos!")
       .setThumbnail("")
       .setColor(config.cor)
-      .setDescription(`Reagir de acordo com o que Procura!\n\n Na duvida use ${prefix}ajuda e o nome do comando \n\n📰 - Informações\n\n🛂 - Administração\n\n🎮 - Outros\n\n⚙️ - Config`)
+      .setDescription(`Reagir de acordo com o que Procura!\n\n Na duvida use ${p.prefix}ajuda e o nome do comando \n\n📰 - Informações\n\n🛂 - Administração\n\n🎮 - Outros\n\n⚙️ - Config`)
       
   
     message.channel.send(ajuda).then(msg => {
@@ -69,7 +65,7 @@ module.exports = {
        infos.on('collect', r2 => {
  
         ajuda.setTitle("Commandos Informativos")
-        ajuda.setDescription(`**${prefix}ajuda [aj]**\n\n **${prefix}avatar  [av]**\n\n**${prefix}botinfo  [bi]**\n\n **${prefix}serverinfo [si]**\n\n **${prefix}userinfo [ui]** \n\n**${prefix}ping  [p]** \n\n **${prefix}tempo** \n\n**${prefix}ram**\n\n**${prefix}nivel**`)
+        ajuda.setDescription(`**${p.prefix}ajuda [aj]**\n\n **${p.prefix}avatar  [av]**\n\n**${p.prefix}botinfo  [bi]**\n\n **${p.prefix}serverinfo [si]**\n\n **${p.prefix}userinfo [ui]** \n\n**${p.prefix}ping  [p]** \n\n **${p.prefix}tempo** \n\n**${p.prefix}ram**\n\n**${p.prefix}nivel**`)
         msg.edit(ajuda)
         
       })
@@ -78,7 +74,7 @@ module.exports = {
       adm.on('collect', r2 => {
 
         ajuda.setTitle("Commandos de administraçao")
-        ajuda.setDescription(`**${prefix}anuncio [an]**\n\n **${prefix}apagar [a]**\n\n **${prefix}expulsar**\n\n **${prefix}ban**\n\n **${prefix}mutar**\n\n**${prefix}lock on**\n\n **${prefix}lock off**\n\n**${prefix}serverlist [sl]**\n\n**${prefix}webhook [web] 1 / 2**\n\n**${prefix}cargo**`)
+        ajuda.setDescription(`**${p.prefix}anuncio [an]**\n\n **${p.prefix}apagar [a]**\n\n **${p.prefix}expulsar**\n\n **${p.prefix}ban**\n\n **${p.prefix}mutar**\n\n**${p.prefix}lock on**\n\n **${p.prefix}lock off**\n\n**${p.prefix}serverlist [sl]**\n\n**${p.prefix}webhook [web] 1 / 2**\n\n**${p.prefix}cargo**`)
         msg.edit(ajuda)
 
       })
@@ -86,7 +82,7 @@ module.exports = {
       outr.on('collect', r2 => {
           
         ajuda.setTitle("Outros commandos")
-        ajuda.setDescription(`**${prefix}cor**\n\n**${prefix}8ball [8]**\n\n **${prefix}emoji**\n\n **${prefix}coinflip [cf]**\n\n **${prefix}jogardado [dado]**\n\n **${prefix}jogardados [dados]**\n\n **${prefix}sugestao [s]** \n`)
+        ajuda.setDescription(`**${p.prefix}cor**\n\n**${p.prefix}8ball [8]**\n\n **${p.prefix}emoji**\n\n **${p.prefix}coinflip [cf]**\n\n **${p.prefix}jogardado [dado]**\n\n **${p.prefix}jogardados [dados]**\n\n **${p.prefix}sugestao [s]** \n`)
         msg.edit(ajuda)
 
       })
@@ -94,7 +90,7 @@ module.exports = {
       configu.on('collect', r2 => {
 
         ajuda.setTitle("config do server!")
-        ajuda.setDescription(`**${prefix}dentrada**\n Define o canal onde serão envidas as mensagens de boas vindas.\n**${prefix}dsaida**\n Define o canal onde serão envidas as mensagens de saida.\n**${prefix}dcargo**\nDefine um cargo padão para os novos membros.\n**${prefix}dsugestao**\nDefine um canal para as sugestoes\n**${prefix}dmute**\ndefine o cargo de mutado**${prefix}\nrentrada**\nRemove a mensagem de Bem vindo.\n**${prefix}rsaida**\nRemove a mensagem de saida.\n**${prefix}rcargo**\nRemove o cargo padrão.\n**${prefix}rsugestao**\nRemove o canal de sugestões\n**${prefix}rmute**\nRemove o cargo mutado`)
+        ajuda.setDescription(`**${p.prefix}dentrada**\n Define o canal onde serão envidas as mensagens de boas vindas.\n**${p.prefix}dsaida**\n Define o canal onde serão envidas as mensagens de saida.\n**${p.prefix}dcargo**\nDefine um cargo padão para os novos membros.\n**${p.prefix}dsugestao**\nDefine um canal para as sugestoes\n**${p.prefix}dmute**\ndefine o cargo de mutado**${p.prefix}\nrentrada**\nRemove a mensagem de Bem vindo.\n**${p.prefix}rsaida**\nRemove a mensagem de saida.\n**${p.prefix}rcargo**\nRemove o cargo padrão.\n**${p.prefix}rsugestao**\nRemove o canal de sugestões\n**${p.prefix}rmute**\nRemove o cargo mutado`)
 
         msg.edit(ajuda)
           
@@ -103,7 +99,7 @@ module.exports = {
       inicio.on('collect', r2 => {
 
         ajuda.setTitle("Lista de comandos!")
-        ajuda.setDescription(`Reagir de acordo com o que Procura!\n\n Na duvida use ${prefix}ajuda e o nome do comando \n\n📰 - Informações\n\n🛂 - Administração\n\n🎮 - Outros\n\n⚙️ - Config`)
+        ajuda.setDescription(`Reagir de acordo com o que Procura!\n\n Na duvida use ${p.prefix}ajuda e o nome do comando \n\n📰 - Informações\n\n🛂 - Administração\n\n🎮 - Outros\n\n⚙️ - Config`)
         msg.edit(ajuda)
           
         })  
@@ -111,7 +107,7 @@ module.exports = {
   })
 
 }
-      })
+    
 
    }
 }

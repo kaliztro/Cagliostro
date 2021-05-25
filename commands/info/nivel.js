@@ -1,11 +1,12 @@
 const Discord = require("discord.js")
 const config = require("../../config.json")
+const p = require("../../index")
 
 module.exports = {
   name: "nivel",
   category: "info",
   aliases: ['level', 'lvl'],
-  usage: `${config.prefix}nivel`,
+  usage: `${p.prefix}nivel`,
   description: "Mostra seu nivel no servidor.",
   run: (client, message, args, database) => {
 

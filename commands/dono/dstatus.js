@@ -1,10 +1,11 @@
 const discord = require("discord.js")
 const config = require("../../config.json")
+const p = require("../../index")
 
 module.exports = {
   name: "dstatus",
   description: "Altera o status do bot.",
-  usage: `${config.prefix}dstatus <aqui>`,
+  usage: `${p.prefix}dstatus <aqui>`,
   category: "dono",
   run: async (client, message, args, database) => {
     

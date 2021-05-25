@@ -1,12 +1,13 @@
 const Discord = require("discord.js")
 const config = require("../../config.json")
 const FB = require('firebase');
+const p = require("../../index")
 
 module.exports = {
     name: "rcargo",
     category: "config",
     aliases: [],
-    usage: `${config.prefix}rcargo <@cargo>`,
+    usage: `${p.prefix}rcargo <@cargo>`,
     description: "Remove o cargo definido.",
     run: (client, message, args) => {
       

@@ -2,6 +2,7 @@ const Discord = require('discord.js')
 const moment = require('moment')
 const config = require("../../config.json");
 const discloud = require("discloud-status");
+const p = require("../../index")
 
 moment.updateLocale('pt-br')
 
@@ -10,7 +11,7 @@ module.exports = {
     category: "info",
     aliases: ["bi"],
     description: "Mostra informações do bot.",
-    usage: `${config.prefix}botinfo`,
+    usage: `${p.prefix}botinfo`,
     run: async (client, message, args) => {
 
         let totalSeconds = client.uptime / 1000;
@@ -44,7 +45,7 @@ module.exports = {
       .setAuthor('🤖 Minhas informações')
       .addField('**Meu nick**', userName)
       .addField('**Meu ID**', client.user.id)
-      .addField('**Meu prefix é:**', `ㅤㅤ${config.prefix}`)
+      .addField('**Meu prefix é:**', `ㅤㅤ${p.prefix}`)
       .addField('**Meu criador**', 'Kaliztro#9240')
       .addField('**Servidores**', `ㅤ🛡 ${servsize}`, true)
       .addField('**Usuários**', `ㅤ👥${usersize}`, inline)

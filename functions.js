@@ -15,4 +15,3 @@ exports.storageBucket = config ? config.storageBucket : process.env.storageBucke
 exports.messagingSenderId = config ? config.messagingSenderId : process.env.messagingSenderId;
 exports.appId = config ? config.appId : process.env.appId;
 exports.measurementId = config ? config.measurementId : process.env.measurementId;
-

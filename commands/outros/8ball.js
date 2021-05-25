@@ -1,12 +1,13 @@
 const Discord = require('discord.js');
 const config = require("../../config.json");
+const p = require("../../index")
 
 module.exports = {
     name: "8ball",
     category: "outros",
     aliases: ["8"],
     description: "Te da resposta para suas perguntas!",
-    usage: `${config.prefix}8 e a sua pergunta, ou ${config.prefix}8ball e a sua pergunta.`,
+    usage: `${p.prefix}8 e a sua pergunta, ou ${p.prefix}8ball e a sua pergunta.`,
     run: async (client, message, args) => {
 
 
