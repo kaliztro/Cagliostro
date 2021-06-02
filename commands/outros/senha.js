@@ -8,10 +8,10 @@ module.exports = {
   usage: `${p.prefix}emoji e o nome do emoji.`,
   description: "Envia o emoji escolhido no chat.",
   run: async (client, message, args) => {
-
+    message.react("✅");
 
     function gerarPassword() {
-    return Math.random().toString(36).slice(-10);
+    return Math.random().toString(36).slice(-8);
 }
 
 var testes = Array.apply(null, Array(10)).map(gerarPassword);
