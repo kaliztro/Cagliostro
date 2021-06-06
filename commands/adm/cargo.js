@@ -10,6 +10,8 @@ module.exports = {
         usage: `${p.prefix}cargo @membro @cargo`,
         run: async (client, message, args) => {
 
+        message.delete()
+
         var membro = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
         if(!membro) return message.reply('Você não mencionou ninguém.');
 
