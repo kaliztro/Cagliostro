@@ -101,5 +101,20 @@ module.exports = async (client, message) => {
          })
         
 // fim do sistema de XP
+
+if(message.mentions.members.first()) {
+
+database.ref(`afk/${message.mentions.members.first().id}`)
+  .once('value').then(async function (snap) {
+
+    if (snap.val() == null) return;
+
+    const Mensagem = snap.val().MensagemAFK
+
+    message.reply(`${Mensagem}`);
+  })
+
+}
+
     }
 

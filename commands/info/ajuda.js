@@ -74,7 +74,7 @@ module.exports = {
       adm.on('collect', r2 => {
 
         ajuda.setTitle("Commandos de administraçao")
-        ajuda.setDescription(`**${p.prefix}anuncio [an]**\n\n **${p.prefix}apagar [a]**\n\n **${p.prefix}expulsar**\n\n **${p.prefix}ban**\n\n **${p.prefix}mutar**\n\n**${p.prefix}lock on**\n\n **${p.prefix}lock off**\n\n**${p.prefix}serverlist [sl]**\n\n**${p.prefix}webhook [web] 1 / 2**\n\n**${p.prefix}cargo**`)
+        ajuda.setDescription(`**${p.prefix}anuncio [an]**\n\n **${p.prefix}apagar [a]**\n\n **${p.prefix}expulsar**\n\n **${p.prefix}ban**\n\n **${p.prefix}mutar**\n\n**${p.prefix}lock on**\n\n **${p.prefix}lock off**\n\n**${p.prefix}serverlist [sl]**\n\n**${p.prefix}cargo**`)
         msg.edit(ajuda)
 
       })
@@ -82,7 +82,7 @@ module.exports = {
       outr.on('collect', r2 => {
           
         ajuda.setTitle("Outros commandos")
-        ajuda.setDescription(`**${p.prefix}cor**\n\n**${p.prefix}8ball [8]**\n\n **${p.prefix}emoji**\n\n **${p.prefix}coinflip [cf]**\n\n **${p.prefix}jogardado [dado]**\n\n **${p.prefix}jogardados [dados]**\n\n **${p.prefix}sugestao [s]** \n`)
+        ajuda.setDescription(`**${p.prefix}cor**\n\n**${p.prefix}8ball [8]**\n\n **${p.prefix}emoji**\n\n **${p.prefix}coinflip [cf]**\n\n **${p.prefix}jogardado [dado]**\n\n **${p.prefix}jogardados [dados]**\n\n **${p.prefix}sugestao [s]** \n\n **${p.prefix}afk on / off** \n\n **${p.prefix}senha** \n`)
         msg.edit(ajuda)
 
       })
