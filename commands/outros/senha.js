@@ -5,8 +5,8 @@ module.exports = {
   name: "senha",
   category: "outros",
   aliases: [""],
-  usage: `${p.prefix}emoji e o nome do emoji.`,
-  description: "Envia o emoji escolhido no chat.",
+  usage: `${p.prefix}senha.`,
+  description: "envia uma senha aleatoria na sua DM.",
   run: async (client, message, args) => {
     message.react("✅");
 
