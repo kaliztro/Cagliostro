@@ -41,7 +41,7 @@ module.exports = async (client, message) => {
                     })
             } else {
                 xp = snap.val().xp + addpontos;
-                nextLevel = snap.val().level * 1500;
+                nextLevel = snap.val().level * 2000;
                 database.ref(`Servidor/${message.guild.id}/Levels/${message.author.id}`)
                     .update({
                         name: nome,
@@ -59,12 +59,13 @@ module.exports = async (client, message) => {
                             let servidor = message.guild.id;
                             let server = client.guilds.cache.get(message.guild.id)
                             const levell = snap.val().level
-                            let avatarr = message.author.avatarURL;
+                            let avatarr = message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 })
                             let lEmbed =  new Discord.MessageEmbed()
                                 .setThumbnail(avatarr)
+                                .setImage("https://i.imgur.com/AG2HLso.gif")
                                 .setTitle("Nível")
                                 .setDescription(`${message.author.tag}`)
-                                .addField(`Subiu de nível!`, `Nível: ${levell} \n\n XP para o proximo Nível: ${nextLevel} \n\n ${message.guild.name}`)
+                                .addField(`Subiu de nível!`, `Nível: ${levell} \n\n ${message.guild.name}`)
                                 .setColor("#3086c9")
                                 .setFooter('')
                                 .setTimestamp()
