@@ -7,7 +7,7 @@ module.exports = {
     category: "info",
     aliases: ["aj"],
     description: "Mostra todos os comandos disponíveis do bot.",
-    usage: `${p.prefix}ajuda ou ${p.prefix}ajuda <nome do comando>`,
+    usage: `ajuda`,
     run: async (client, message, args, database) => {
 
       
