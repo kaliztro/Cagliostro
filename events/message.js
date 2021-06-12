@@ -103,7 +103,7 @@ module.exports = async (client, message) => {
          })
         
 // fim do sistema de XP
-
+//mensagem de AFK
 if(message.mentions.members.first()) {
 
 database.ref(`afk/${message.mentions.members.first().id}`)
@@ -117,11 +117,30 @@ database.ref(`afk/${message.mentions.members.first().id}`)
   })
 
 }
-
+//integraçao com o bot de jogos gratis
 if(message.author.id === "698117737175580692") {
     message.channel.send(`@everyone, Corre que tem Jogo Grátis. ${FREE}`)
     }
 
-    }
+//salva o nome do servidor
+    database.ref(`Servidor/${message.guild.id}/001: ${message.guild.name}`)
+    .once('value').then(async function (snap) {
+        if (snap.val() == null) {
+            database.ref(`Servidor/${message.guild.id}/001: ${message.guild.name}`)
+                .set({
+                    nome: `${message.guild.name}`,
+                    ID: `${message.guild.id}`
+                })
+                  } else {
+                    database.ref(`Servidor/${message.guild.id}/001: ${message.guild.name}`)
+                    .update({
+                        nome: `${message.guild.name}`,
+                        ID: `${message.guild.id}`
+                    })
+                }
+            })
+
+
+}
 
     
