@@ -11,6 +11,7 @@ module.exports = async (client, message) => {
 
     const emoj = client.guilds.cache.get("545386837846523905");
     const emoji = emoj.emojis.cache.find(emoji => emoji.name === "cagliostro");
+    const FREE = emoj.emojis.cache.find(emoji => emoji.name === "free");
 
     const menção = message.mentions.users.first()
     if(menção){
@@ -117,5 +118,10 @@ database.ref(`afk/${message.mentions.members.first().id}`)
 
 }
 
+if(message.author.id === "698117737175580692") {
+    message.channel.send(`@everyone, Corre que tem Jogo Grátis. ${FREE}`)
     }
 
+    }
+
+    
