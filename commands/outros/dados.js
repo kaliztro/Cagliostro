@@ -5,7 +5,7 @@ module.exports = {
   name: "dados",
   category: "outros",
   aliases: ["jogardados"],
-  usage: `${p.prefix}dados`,
+  usage: `dados`,
   description: "joga os dados. 🎲🎲",
   run: async (client, message, args) => {
 

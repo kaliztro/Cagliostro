@@ -7,7 +7,7 @@ module.exports = {
     category: "outros",
     aliases: ["8"],
     description: "Te da resposta para suas perguntas!",
-    usage: `${p.prefix}8 e a sua pergunta, ou ${p.prefix}8ball e a sua pergunta.`,
+    usage: `8 e a sua pergunta.`,
     run: async (client, message, args) => {
 
 

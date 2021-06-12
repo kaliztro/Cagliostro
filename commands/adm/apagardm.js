@@ -7,7 +7,7 @@ module.exports = {
   category: "adm",
   aliases: ["adm"],
   description: "Apaga mensagens enviadas na dm do bot.",
-  usage: `no perfil do bot digite ${p.prefix}apagardm. obs vc também pode fazer isso em um canal de texto.`,
+  usage: `no perfil do bot digite !apagardm. obs vc também pode fazer isso em um canal de texto.`,
   run: async (client, message, args) => {
     message.react("✅");
 

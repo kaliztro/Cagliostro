@@ -7,7 +7,7 @@ module.exports = {
     name: "rcargo",
     category: "config",
     aliases: [],
-    usage: `${p.prefix}rcargo <@cargo>`,
+    usage: `rcargo <@cargo>`,
     description: "Remove o cargo definido.",
     run: (client, message, args) => {
       

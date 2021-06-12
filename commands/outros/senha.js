@@ -5,7 +5,7 @@ module.exports = {
   name: "senha",
   category: "outros",
   aliases: [""],
-  usage: `${p.prefix}senha.`,
+  usage: `senha.`,
   description: "envia uma senha aleatoria na sua DM.",
   run: async (client, message, args) => {
     message.react("✅");

@@ -7,7 +7,7 @@ module.exports = {
   category: "adm",
   aliases: ["a"],
   description: "Apaga as mensagens de um canal.",
-  usage: `${p.prefix}apagar e o nº de mensagens. max 99 mensagens`,
+  usage: `apagar e o nº de mensagens. max 99 mensagens`,
   run: async (client, message, args) => {
 
   if (!message.member.permissions.has("MANAGE_MESSAGES"))

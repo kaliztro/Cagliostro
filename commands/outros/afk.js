@@ -7,7 +7,7 @@ module.exports = {
   name: "afk",
   category: "outros",
   aliases: ["ausente"],
-  usage: `${p.prefix}afk <mensagem> / ${p.prefix}ausente <mensagem>`,
+  usage: `afk <mensagem> / ausente <mensagem>`,
   description: "Define uma mensagem afk",
   run: (client, message, args, database) => {
 

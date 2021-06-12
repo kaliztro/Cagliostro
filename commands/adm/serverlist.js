@@ -7,7 +7,7 @@ module.exports = {
   category: "adm",
   aliases: ["sl"],
   description: "mostra os servidores em que o bot esta.",
-  usage: `${p.prefix}serverlist`,
+  usage: `serverlist`,
   run: async (client, message, args) => {
 
     if (!message.member.permissions.has("ADMINISTRATOR"))

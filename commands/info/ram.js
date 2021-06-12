@@ -9,7 +9,7 @@ module.exports = {
   category: "info",
   aliases: [],
   description: "Mostra a ram que o bot esta usando.",
-  usage: `${p.prefix}ram`,
+  usage: `ram`,
   run: async (client, message, args) => {
 
 

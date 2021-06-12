@@ -10,7 +10,7 @@ module.exports = {
     category: "info",
     aliases: ["ui", "user"],
     description: "Mostra as informações do usuario",
-    usage: `${p.prefix}userinfo`,
+    usage: `userinfo`,
 
     run: async (client, message, args) => {
     let userArray = message.content.split(" ");

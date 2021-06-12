@@ -7,7 +7,7 @@ module.exports = {
   name: "rsaida",
   category: "config",
   aliases: [],
-  usage: `${p.prefix}rsaida <#canal>`,
+  usage: `rsaida <#canal>`,
   description: "Remove o canal de saida.",
   run: (client, message, args) => {
 

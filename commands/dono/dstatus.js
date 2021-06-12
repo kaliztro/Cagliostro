@@ -5,7 +5,7 @@ const p = require("../../index")
 module.exports = {
   name: "dstatus",
   description: "Altera o status do bot.",
-  usage: `${p.prefix}dstatus <aqui>`,
+  usage: `dstatus <aqui>`,
   category: "dono",
   run: async (client, message, args, database) => {
     

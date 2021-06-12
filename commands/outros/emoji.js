@@ -5,7 +5,7 @@ module.exports = {
   name: "emoji",
   category: "outros",
   aliases: [""],
-  usage: `${p.prefix}emoji e o nome do emoji.`,
+  usage: `emoji e o nome do emoji.`,
   description: "Envia o emoji escolhido no chat.",
   run: async (client, message, args) => {
 

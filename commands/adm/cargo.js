@@ -7,7 +7,7 @@ module.exports = {
         category: "adm",
         aliases: ["cargo"],
         description: "Atribuii um cargo ao membro mencionado.",
-        usage: `${p.prefix}cargo @membro @cargo`,
+        usage: `cargo @membro @cargo`,
         run: async (client, message, args) => {
 
         message.delete()

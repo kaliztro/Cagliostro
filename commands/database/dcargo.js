@@ -6,7 +6,7 @@ module.exports = {
   name: "dcargo",
   category: "config",
   aliases: [],
-  usage: `${p.prefix}dentrada <#canal>`,
+  usage: `dentrada <#canal>`,
   description: "Define um cargo a todos os novos membros",
   run: (client, message, args, database) => {
 

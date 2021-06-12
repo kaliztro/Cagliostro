@@ -8,7 +8,7 @@ const ms = require("ms");
             category: "adm",
             aliases: ["mutar"],
             description: "muta temporariamente um membro do servidor.",
-            usage: `${p.prefix}mute @usuario tempo motivo `,
+            usage: `mute @usuario tempo motivo `,
             run: async (client, message, args, database, member) => {
 
                 message.delete()

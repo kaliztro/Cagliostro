@@ -7,7 +7,7 @@ module.exports = {
   category: "outros",
   aliases: ["cf"],
   description: "Jogo de Cara ou Coroa.",
-  usage: `${p.prefix}cf **cara** ou **coroa**, vc tmb pode usar ${p.prefix}coinflip **cara** ou **coroa**`,
+  usage: `coinflip **cara** ou **coroa**`,
   run: async (client, message, args) => {
 
   var array1 = ["cara", "coroa"];

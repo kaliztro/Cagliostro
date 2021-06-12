@@ -7,7 +7,7 @@ module.exports = {
     name: "rmute",
     category: "config",
     aliases: [],
-    usage: `${p.prefix}rmute <@cargo>`,
+    usage: `rmute <@cargo>`,
     description: "Remove o cargo definido.",
     run: (client, message, args) => {
       

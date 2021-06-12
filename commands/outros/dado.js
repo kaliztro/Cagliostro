@@ -6,7 +6,7 @@ module.exports = {
   category: "outros",
   aliases: ["jogardado"],
   description: "joga o dado. 🎲",
-  usage: `${p.prefix}dado`,
+  usage: `dado`,
   run: async (client, message, args) => {
 
   var array1 = ["1", "2", "3", "4", "5", "6"];

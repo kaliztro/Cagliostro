@@ -6,7 +6,7 @@ module.exports = {
   name: "nivel",
   category: "info",
   aliases: ['level', 'lvl'],
-  usage: `${p.prefix}nivel`,
+  usage: `nivel`,
   description: "Mostra seu nivel no servidor.",
   run: (client, message, args, database) => {
 

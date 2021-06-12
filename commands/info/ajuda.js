@@ -21,7 +21,7 @@ module.exports = {
         let embed = new Discord.MessageEmbed()
           .setAuthor(command.name, "https://i.imgur.com/2ubNTXm.png" )
           .addField("Descrição", command.description || "Não definido :(")
-          .addField("Como usar:", "`" + command.usage + "`" || "Não definido")
+          .addField("Como usar:", "`" + `${p.prefix}` + command.usage + "`" || "Não definido")
           .addField("abreviação:", "`" + command.aliases + "`" || "Não possui")
           .setColor(config.cor)
   

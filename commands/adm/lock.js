@@ -7,7 +7,7 @@ module.exports = {
    category: "adm",
    aliases: ["trancar"],
    description: "tranca | Destranca um canal.",
-   usage: `no canal que vc quer trancar digite *${p.prefix}lock on** ou **lock off*`,
+   usage: `no canal que vc quer trancar digite *lock on** ou **lock off*`,
    run: async (client, message, args) => { 
 
  if (!message.member.permissions.has("MANAGE_MESSAGES")) 

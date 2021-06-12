@@ -7,7 +7,7 @@ module.exports = {
     category: "outros",
     aliases: ["mudarcor"],
     description: "Muda a sua cor.",
-    usage: `${p.prefix}cor e o nome da cor`,
+    usage: `cor e o nome da cor`,
     run: async (client, message, args) => {
 
         const guild = client.guilds.cache.get("545386837846523905");

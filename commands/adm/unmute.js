@@ -8,7 +8,7 @@ const p = require("../../index")
             category: "adm",
             aliases: ["desmutar"],
             description: "desmuta.",
-            usage: `${p.prefix}unmute @usuario`,
+            usage: `unmute @usuario`,
             run: async (client, message, args, database, member) => {
 
                 message.delete()

@@ -7,7 +7,7 @@ module.exports = {
     category: "adm",
     aliases: ["ban"],
     description: "Bane um membro do servidor.",
-    usage: `${p.prefix}ban @membro motivo`,
+    usage: `ban @membro motivo`,
     run: async (client, message, args) => {
 
         var membro = message.mentions.members.first() || message.guild.members.cache.get(args[0]);

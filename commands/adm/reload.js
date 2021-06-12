@@ -7,7 +7,7 @@ module.exports = {
     category: "adm",
     aliases: ["recarregar"],
     description: "Recarrega um comando.",
-    usage: `${p.prefix}reload e o nomde do comando`,
+    usage: `reload e o nomde do comando`,
     run: async (client, message, args) => {
 
     if (!message.member.permissions.has("ADMINISTRATOR"))

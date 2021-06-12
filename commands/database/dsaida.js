@@ -6,7 +6,7 @@ module.exports = {
   name: "dsaida",
   category: "config",
   aliases: [],
-  usage: `${p.prefix}dsaida <#canal>`,
+  usage: `dsaida <#canal>`,
   description: "define um canal de saida",
   run: (client, message, args, database) => {
 

@@ -6,7 +6,7 @@ module.exports = {
     name: "anuncio",
     category: "adm",
     aliases: ["an"],
-    usage: `${p.prefix}anuncio ou ${p.prefix}an`,
+    usage: `anuncio`,
     description: "Faz um anuncio no canal escolhido.",
     run: async (client, message, args) => {
 

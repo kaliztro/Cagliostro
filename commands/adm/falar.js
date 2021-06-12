@@ -7,7 +7,7 @@ module.exports = {
     category: "adm",
     aliases: ["f"],
     description: "Bot fala o que for escrito.",
-    usage: `${p.prefix}falar #canal conteudo da mensagem`,
+    usage: `falar #canal conteudo da mensagem`,
     run: async (client, message, args) => {
 
         if (!message.member.permissions.has("MANAGE_MESSAGES"))

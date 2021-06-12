@@ -7,7 +7,7 @@ module.exports = {
   name: "rsugestao",
   category: "config",
   aliases: [],
-  usage: `${p.prefix}rsugestao <#canal>`,
+  usage: `rsugestao <#canal>`,
   description: "Remove o canal de sugestões.",
   run: (client, message, args, firebase) => {
 

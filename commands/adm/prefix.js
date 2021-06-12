@@ -7,7 +7,7 @@ module.exports = {
    category: "adm",
    aliases: ["prefixo"],
    description: "Altera o prefixo do bot.",
-   usage: `Digite *${p.prefix}prefix e novo prefix`,
+   usage: `prefix e novo prefix`,
    run: async (client, message, args, database) => { 
 
     if(!args[0]) return message.channel.send("Você deve fornecer o novo prefixo ou digitar remove para usar o prefixo padrão.")

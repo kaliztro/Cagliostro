@@ -6,7 +6,7 @@ module.exports = {
   name: "dentrada",
   category: "config",
   aliases: [],
-  usage: `${p.prefix}dentrada <#canal>`,
+  usage: `dentrada <#canal>`,
   description: "Define um canal de boas vindas",
   run: (client, message, args, database) => {
 

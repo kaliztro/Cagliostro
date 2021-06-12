@@ -7,7 +7,7 @@ module.exports = {
   category: "adm",
   aliases: ["dono"],
   description: "sai do servidor selecionado.",
-  usage: `digite ${p.prefix}sair e o id do servidor. obs: somente o dono do bot pode usar esse comando.`,
+  usage: `sair e o id do servidor. obs: somente o dono do bot pode usar esse comando.`,
   run: async (client, message, args) => {
 
     if(message.author.id != config.donoID) {

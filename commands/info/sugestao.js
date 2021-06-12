@@ -7,7 +7,7 @@ module.exports = {
     category: "info",
     aliases: ["s", "sac"],
     description: "use esse comando para enviar sugestões aos membros da adm do servidor.",
-    usage: `${p.prefix}sugestao <sua sugestao aqui>`,
+    usage: `sugestao <sua sugestao aqui>`,
     run: async (client, message, args, database) => {
 
 message.delete();

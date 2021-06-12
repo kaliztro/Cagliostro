@@ -11,7 +11,7 @@ module.exports = {
     category: "info",
     aliases: ["si"],
     description: "Informação sobre o servidor.",
-    usage: `${p.prefix}serverinfo`,
+    usage: `serverinfo`,
     run: async (client, message, args) => {
 
       const verificationLevels = {

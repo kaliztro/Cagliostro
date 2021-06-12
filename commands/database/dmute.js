@@ -6,7 +6,7 @@ module.exports = {
     name: "dmute",
     category: "config",
     aliases: [],
-    usage: `${p.prefix}dmute <@cargo>`,
+    usage: `dmute <@cargo>`,
     description: "Define o cargo de mutado",
     run: (client, message, args, database) => {
 

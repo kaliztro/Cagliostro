@@ -7,7 +7,7 @@ module.exports = {
         category: "adm",
         aliases: ["expulsar"],
         description: "Expulsa um membro do servidor.",
-        usage: `${p.prefix}expulsar @membro motivo`,
+        usage: `expulsar @membro motivo`,
         run: async (client, message, args) => {
 
         var membro = message.mentions.members.first() || message.guild.members.cache.get(args[0]);

@@ -11,7 +11,7 @@ module.exports = {
     category: "info",
     aliases: ["bi"],
     description: "Mostra informações do bot.",
-    usage: `${p.prefix}botinfo`,
+    usage: `botinfo`,
     run: async (client, message, args) => {
 
         let totalSeconds = client.uptime / 1000;
