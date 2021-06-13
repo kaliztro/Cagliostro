@@ -6,7 +6,7 @@ module.exports = {
         name: "cargo",
         category: "adm",
         aliases: ["cargo"],
-        description: "Atribuii um cargo ao membro mencionado.",
+        description: "Atribui um cargo ao membro mencionado.",
         usage: `cargo @membro @cargo`,
         run: async (client, message, args) => {
 

@@ -15,7 +15,7 @@ module.exports = {
 
     const coresEmbed = new Discord.MessageEmbed()
     .setTitle('Cores disponiveis')
-    .setDescription(`*ciano\n*laranja\n*verde\n*preto\n*branco\n*rosa\n*roxo\n*amarelo\n*azul\n*marrom \n\n Para remover digite ${p.prefix}cor remover`)
+    .setDescription(`*ciano\n*laranja\n*verde\n*preto\n*branco\n*rosa\n*roxo\n*amarelo\n*azul\n*marrom \n\n Para remover digite cor remover`)
     .setColor(config.cor)
 
     var string = args.join(" ");
