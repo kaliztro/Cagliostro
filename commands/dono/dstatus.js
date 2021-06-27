@@ -10,7 +10,7 @@ module.exports = {
   run: async (client, message, args, database) => {
     
     if(message.author.id != config.donoID) {
-      return message.channel.send(`${message.author}, Tu deve estar doidão né?, só o dono do Bot pode executar esse comando. \n se quiser que eu saia pede para o Kaliztro#9240`)
+      return message.channel.send(`${message.author}, Tu deve estar doidão né?, só o dono do Bot pode alterar a mensagem de status.`)
     }
     
     if(!args.length) {
