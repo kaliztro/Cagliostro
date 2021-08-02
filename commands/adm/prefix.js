@@ -10,6 +10,9 @@ module.exports = {
    usage: `prefix e novo prefix`,
    run: async (client, message, args, database) => { 
 
+    if (!message.member.permissions.has("ADMINISTRATOR"))
+    return message.reply("🛑 Parece que vc está tentando usar um comando que é permitido somente aos ADMs 🛑");
+
     if(!args[0]) return message.channel.send("Você deve fornecer o novo prefixo ou digitar remove para usar o prefixo padrão.")
 
     if (message.content.includes("remove")) {
