@@ -53,8 +53,8 @@ module.exports = {
       .addField('**Criado em**', formatDate('DD/MM/YYYY', date))
       .addField('**Host**', `${emoji} DisCloudbot.com`)
       .addField('**Uso de RAM**', `${DRAM}` )
-      .addField("Me adicione ao seu servidor", "ㅤㅤㅤㅤ[link](https://discord.com/oauth2/authorize?client_id=711082925617184799&permissions=8&scope=bot)in park")
-      .setFooter(`2020 © ${client.user.username}.`)
+      .addField("Me adicione ao seu servidor", "ㅤㅤㅤㅤ[link](https://discord.com/api/oauth2/authorize?client_id=711082925617184799&permissions=8&scope=bot%20applications.commands)in park")
+      .setFooter(`2021 © ${client.user.username}.`)
       .setTimestamp()
 
       if (client.user.presence.status) {
