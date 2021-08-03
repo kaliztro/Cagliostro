@@ -1,12 +1,12 @@
 {
   "name": "cagliostro",
   "version": "3.0.1",
-  "description": "Bot desenvolvido para gerenciar o servidor Parcieros da Loucura",
+  "description": "opropriocagliostro",
   "main": "index.js",
   "dependencies": {
-    "@discordjs/opus": "^0.3.3",
     "ascii-table": "0.0.9",
     "discloud-status": "^0.1.6",
+    "discord-buttons": "^4.0.0",
     "discord.js": "^12.4.1",
     "express": "^4.17.1",
     "firebase": "^8.0.2",
