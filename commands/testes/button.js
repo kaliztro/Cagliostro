@@ -3,7 +3,7 @@ const Discord = require("discord.js")
 
 module.exports = {
   name: "button",
-  category: "outros",
+  category: "teste",
   aliases: [""],
   usage: `senha.`,
   description: "Comando de button.",
