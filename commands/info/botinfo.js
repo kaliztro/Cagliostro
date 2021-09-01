@@ -46,7 +46,7 @@ module.exports = {
       .addField('**Meu nick**', userName)
       .addField('**Meu ID**', client.user.id)
       .addField('**Meu prefix é:**', `ㅤㅤ${p.prefix}`)
-      .addField('**Meu criador**', 'Kaliztro#9240')
+      .addField('**Meu criador**', 'Kaliztro#4988')
       .addField('**Servidores**', `ㅤ🛡 ${servsize}`, true)
       .addField('**Usuários**', `ㅤ👥${usersize}`, inline)
       .addField('**Estou online há**', `${uptime}`)
