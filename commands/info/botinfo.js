@@ -23,8 +23,8 @@ module.exports = {
   
     let uptime = ` ${days.toFixed()}d ${hours.toFixed()}h ${minutes.toFixed()}m ${seconds.toFixed()}s`;
   
-    const guild = client.guilds.cache.get("720758990820343909");
-    const emoji = guild.emojis.cache.find(emoji => emoji.id === "738911846635012188");
+    const guild = client.guilds.cache.get("545386837846523905");
+    const emoji = guild.emojis.cache.find(emoji => emoji.id === "891800921296756836");
 
     const DRAM = discloud.ram();
 
