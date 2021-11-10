@@ -32,7 +32,7 @@ client.channels.cache.get(Mcanal).send(embed)
     if (member.user.bot){
 
         let guild = await client.guilds.cache.get("545386837846523905");
-        let nelson = await member.guild.emojis.cache.find(emoji => emoji.id === "899411847181119508");
+        let nelson = await guild.emojis.cache.find(emoji => emoji.id === "899411847181119508");
 
       let botembed = new Discord.MessageEmbed()
     .setColor(config.cor)
